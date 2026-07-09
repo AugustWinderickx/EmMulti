@@ -1,0 +1,129 @@
+# =============================================================================
+# STAGE 1 - coarse compartment extraction (for leiden_wnn_02 / low-resolution
+# clustering). Companion to crc_celltype_markers.yaml (the 30-state oncofetal-
+# gradient file), which is STAGE 2: re-cluster the `cancer_epithelial` subset
+# extracted here at higher resolution, then run the fine-grained file on that
+# subset alone. Trying to resolve stem_ta vs. premalignant vs. inflammation vs.
+# malignant_general as separate LEIDEN CLUSTERS at resolution 0.2 was the root
+# cause of your "unknown" cluster - those fine states weren't cluster-separated
+# in the first place, so their scores necessarily tied within whichever single
+# broad cluster contained all of them.
+#
+# WHAT CHANGED FROM A NAIVE MERGE:
+# Just unioning the 30 fine gene sets into 5 buckets would still leave two
+# buckets fighting over shared genes (e.g. cholangiocyte's EPCAM/KRT19 vs.
+# cancer_epithelial, kupffer's CD68 vs. immune, hepatic_stellate's PDGFRB/RGS5
+# vs. fibroblast). Kupffer cells and hepatic stellate cells are GENUINELY
+# dual-identity (a Kupffer cell really is both "immune" and "liver-resident"),
+# so this can't be fully solved by better markers - but it can be reduced.
+# `liver_contamination` below deliberately keeps ONLY the genes that are
+# liver-specific and NOT already doing work in another bucket, so it only
+# fires strongly on the liver-exclusive signal, not the shared macrophage/
+# stromal/endothelial identity those cells also carry. That was the actual
+# cause of your near-tie in cluster 0 (epithelial_pan 0.257 vs. cholangiocyte
+# 0.253, gap 0.005) - cholangiocyte was scoring almost entirely off EPCAM/
+# KRT19/KRT8, which any CRC epithelial cell also expresses.
+# =============================================================================
+
+params:
+  margin: 0.15
+  min_score: 0.0
+
+celltypes:
+
+  # ---------------------------------------------------------------------
+  # Every epithelial state from the fine-grained file, collapsed into one
+  # broad "is this epithelium/cancer" bucket. Normal-vs-malignant and
+  # oncofetal-gradient position are questions for Stage 2, not this pass -
+  # your CNV-inference step is what actually separates malignant from
+  # normal epithelium anyway, not marker genes.
+  # ---------------------------------------------------------------------
+  epithelial:
+    rna: [EPCAM, TACSTD2, KRT8, KRT18, KRT19, KRT20, CDH1, ELF3, CLDN4, CEACAM5, CEACAM6, CEACAM7, LAMC2, ITGA3, CD44, ASCL2]
+    atac_genes: [EPCAM]
+    
+      # EPCAM, KRT8, KRT18, KRT19, KRT20, CDH1, ELF3,
+      #     LGR5, OLFM4, ASCL2, SMOC2, RNF43, MKI67, TOP2A, RRM2, HELLS,
+      #     ANXA1, CLU, TACSTD2, YAP1, WWTR1, L1CAM, PKN2, CD55, EMP1, CLDN4, CALB1,
+      #     SOX4, SOX9, DACH1, SNAI2,
+      #     ATF3, ATF4, CREB3L1, CREB3L2, SLC12A2, RGMB, LEFTY1, REG1A, TFF3, MUC6, NME2,
+      #     MYC, CD44, TCF4, CEACAM5, CEACAM6, LAMC2, ITGA3, FOSL1,
+      #     CD70, OSMR,
+      #     NEUROG3, INSM1, CHGA, CHGB, NEUROD1, TP63, KRT5, KRT14,
+      #     FABP1, CEACAM7, GUCA2A, GUCA2B, CA1, SLC26A3,
+      #     MUC2, SPINK4, ZG16, FCGBP, CLCA1,
+      #     DEFA5, DEFA6, REG3A, PLA2G2A,
+      #     POU2F3, DCLK1, TRPM5, AVIL,
+      #     PYY, SCG2, TPH1,
+      #     BEST4, OTOP2, CA7]
+    # atac_genes: [EPCAM, KRT8, CDX2, LGR5, CEACAM5]
+    # COL1A1 and PROX1 were both in the source data for this bucket too
+    #   (COL1A1 from the PDAC-derived "malignant markers" note; PROX1 from
+    #   the metastasis-initiating signature), but both are more decisively
+    #   fibroblast/endothelial genes respectively, and this list already has
+    #   85+ other genes carrying the epithelial signal - dropped both here
+    #   rather than let them split votes between compartments.
+    # NOTE: L1CAM is in this list for the metastasis/revival signal, but it's
+    #   also documented on tumour-associated blood/lymphatic vessels - your
+    #   cluster 4 (called `endothelial`, correctly, by a wide margin) also
+    #   scored oddly high on revival_fetal_reversion (+1.41) and
+    #   metastasis_initiating_lgr5low (+2.20) in the fine-grained run, and
+    #   L1CAM is a shared member of both those sets. Worth checking the
+    #   dotplot's L1CAM column specifically against cluster 4 before trusting
+    #   L1CAM+ calls in vascular-adjacent regions - it may not be as
+    #   epithelium-specific as the rest of this list.
+
+  immune:
+    rna: [CD3D, CD3E, TRAC, NKG7, GNLY, MS4A1, CD79A, LYZ, FCGR3A, HLA-DRA, C1QA]
+    atac_genes: [CD3D, CD3E, MS4A1, LYZ, SPI1, CD68]
+
+  fibroblast:
+    rna: [COL1A1, COL1A2, COL3A1, DCN ,LUM ,PDGFRA, FAP, THY1]
+    atac_genes: [COL1A1, PDGFRA, DCN, RGS5]
+
+  endothelial:
+    # kept separate rather than folded into `fibroblast` - forcing vasculature
+    # into the fibroblast bucket is exactly what would have muddied your
+    # cluster 4 and cluster 3 calls (both already show real cross-talk with
+    # pericyte/stellate/endothelial neighbours even as distinct buckets)
+    rna: [PECAM1, VWF, CDH5, CLDN5, FLT1, PLVAP]
+    atac_genes: [PECAM1, CDH5]
+
+  liver_contamination:
+    # Deliberately NOT a simple union of hepatocyte+cholangiocyte+kupffer+
+    # LSEC+stellate from the fine file. Generic/shared genes (EPCAM, KRT19,
+    # CD68, MRC1, PDGFRB, RGS5, COL1A1, LYVE1) are left OUT here because
+    # they're already carrying weight in cancer_epithelial / immune /
+    # fibroblast / endothelial above - including them here too would just
+    # recreate the cluster-0-style near-tie for every liver-adjacent cluster.
+    rna: [ALB,APOA1,APOA2,TTR,FGA,FGB,FGG,HNF4A,CYP3A4,MARCO,CLEC4F,CD5L,VSIG4]
+    atac_genes: [ALB, HNF4A, HNF1B, CLEC4F]
+    # This bucket will still legitimately co-fire with `immune` for Kupffer
+    #   cells and with `fibroblast` for hepatic stellate cells - that's not a
+    #   marker problem, it's because those cells really do have dual identity
+    #   (liver-resident macrophage / liver-resident myofibroblast-like cell).
+    #   If you need a single clean label for extraction, decide a priority
+    #   rule rather than expect the margin to resolve it - e.g. "if
+    #   liver_contamination clears min_score at all, call it liver
+    #   regardless of what else scores higher," since the whole point of this
+    #   bucket is provenance (is this cell liver tissue at all), not lineage.
+    # ALB/APOA1/FGA-FGB-FGG are also classic ambient-RNA contaminants in
+    #   droplet-based liver scRNA-seq even after CellBender - a LOW score
+    #   spread evenly across many clusters (rather than concentrated in one)
+    #   points to residual ambient signal, not a real hepatocyte cluster.
+
+# =============================================================================
+# WHAT THIS SHOULD DO TO YOUR 6 CLUSTERS (from the score table you sent):
+#   0: was tied epithelial_pan/cholangiocyte/stem_ta (gap 0.005, -> unknown).
+#      Should now resolve cleanly to cancer_epithelial - the genes previously
+#      splitting its vote across 7 fine epithelial buckets now all vote for
+#      the same bucket, and cholangiocyte no longer scores off EPCAM/KRT19.
+#   1: kupffer_cell (was already correct) -> now liver_contamination.
+#   2: t_cell (was already correct) -> now immune.
+#   3: fibroblast (was already correct, but hepatic_stellate was a close
+#      3rd) -> now fibroblast, watch for residual liver_contamination
+#      co-scoring (expected - see note above).
+#   4: endothelial (was already correct) -> now endothelial, watch for
+#      liver_contamination co-scoring from the LSEC genes.
+#   5: hepatocyte (was already correct) -> now liver_contamination.
+# =============================================================================

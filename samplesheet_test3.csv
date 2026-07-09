@@ -1,0 +1,4 @@
+study,sample,atac_fragments,rna_h5
+efremova,CRC01,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/atac/efremova_CRC01_fragments.tsv.gz,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/rna/efremova_CRC01_rna.h5
+efremova,CRC02,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/atac/efremova_CRC02_fragments.tsv.gz,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/rna/efremova_CRC02_rna.h5
+efremova,CRC03,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/atac/efremova_CRC03_fragments.tsv.gz,/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/rna/efremova_CRC03_rna.h5

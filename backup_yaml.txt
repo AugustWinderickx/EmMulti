@@ -1,0 +1,299 @@
+
+# # =============================================================================
+# # CRC + healthy gut + liver-metastasis multiome cell-type marker config
+# # =============================================================================
+# # Revision of the original VS Code-generated list. Rebuilt around the
+# # oncofetal-reprogramming paradigm and sourced from markers_crc_FINAL.ods,
+# # cell_type_markers_reference.ods, and the papers discussed in chat:
+# #   - Oliver et al. 2024, Nature (10.1038/s41586-024-07571-1)      - INFLAREs
+# #   - Moorman et al. 2024, Nature (10.1038/s41586-024-08150-0)     - metastasis
+# #   - Lorzadeh et al. 2026, bioRxiv (10.64898/2026.01.31.702974)   - mouse ISC enhancers
+# #   - PGE2/COX2/DACH1 proCSC<->revCSC preprint (10.64898/2026.06.14.732116)
+# #   - Yu et al. 2025, Int J Cancer (10.1002/ijc.70103)             - CAFs
+# #   - "The Role of KRAS Mutations in CRC", Cancers 2025, 17(3):428 (10.3390/cancers17030428)
+# #
+# # CITATION HYGIENE FLAG: in your "proCSC/revCSC" table (rows ~119-135 of the
+# # expression-markers sheet), the per-gene DOIs increment by exactly 1 for
+# # almost every row (...732116, 732117, 732118, ...). Real papers don't mint a
+# # new DOI per cited gene - this looks like a placeholder/fabrication artifact
+# # from whatever tool extracted the table (possibly the same one that produced
+# # the YAML below). I've collapsed all of those back to the single real DOI
+# # (2026.06.14.732116) throughout this file. Worth checking the original PDF
+# # directly if you need per-claim page/figure references.
+# #
+# # GRADIENT DESIGN NOTE:
+# #   The LGR5-stem <-> fetal-reversion axis is a *continuum*, not discrete
+# #   cell types. A per-cluster argmax/margin classifier forces a hard call,
+# #   and cells sitting mid-gradient may legitimately flip between adjacent
+# #   buckets (stem_ta / revival_fetal_reversion / premalignant_hybrid_emt)
+# #   with score differences below `margin`. That's expected, not a bug.
+# #   For an actual gradient readout (e.g. reproducing a proCSC->revCSC axis
+# #   on a UMAP), also compute continuous per-cell module scores (scanpy
+# #   score_genes on the stem_ta vs. revival_fetal_reversion gene sets, then
+# #   plot the difference/ratio) rather than relying only on the discrete
+# #   label. Say the word if you want help scripting that separately.
+# #
+# # MALIGNANT VS. NORMAL NOTE:
+# #   proCSC and healthy LGR5+ CBC stem cells are transcriptionally very
+# #   similar by design (proCSC IS the LGR5 program, just hyperproliferative
+# #   in a transformed cell) - RRM2/HELLS/TOP2A/MKI67 flag proliferation, but
+# #   healthy TA-zone cells proliferate too. Marker genes alone can't resolve
+# #   malignant vs. normal here; that's what your CNV inference step
+# #   (inferCNV/CopyKAT/Numbat) is for, same as your metastasis epithelial
+# #   subclustering.
+# # =============================================================================
+
+# params:
+#   margin: 0.25
+#   min_score: 0.0
+#   # With ~29 cell types now, several of which are intentionally
+#   # overlapping/adjacent (the oncofetal gradient, and the liver-contamination
+#   # set vs. their generic-tissue counterparts), consider whether a single
+#   # global margin is still the right call for all of them, or whether the
+#   # gradient buckets specifically warrant a two-pass approach (coarse lineage
+#   # call first, then a separate continuous score within epithelium).
+
+# celltypes:
+
+#   # ---------------------------------------------------------------------
+#   # EPITHELIAL - pan-lineage identity (fires on ALL epithelium, normal+tumor)
+#   # ---------------------------------------------------------------------
+#   epithelial_pan:
+#     rna: [EPCAM, KRT8, KRT18, KRT19, CDH1, ELF3, KRT20]
+#     atac_genes: [EPCAM, KRT8, CDX2]
+
+#   # ---------------------------------------------------------------------
+#   # EPITHELIAL - oncofetal / stemness gradient (core axis of the project)
+#   #   stem_ta -> revival_fetal_reversion -> premalignant_hybrid_emt
+#   #     -> malignant_epithelial_general -> metastasis_initiating_lgr5low
+#   #     -> non_canonical_differentiation_* (further-progressed metastasis)
+#   # ---------------------------------------------------------------------
+
+#   stem_ta:  # homeostatic LGR5+ CBC stem/TA cell AND proCSC - these overlap
+#             # transcriptionally; see malignant-vs-normal note above
+#     rna: [LGR5, OLFM4, ASCL2, SMOC2, RNF43, MKI67, TOP2A, RRM2, HELLS]
+#     atac_genes: [LGR5, ASCL2, OLFM4]
+
+#   revival_fetal_reversion:  # revSC + revCSC + YAP/TAZ fetal program, merged -
+#                              # revCSC is this program's malignant instantiation,
+#                              # not a biologically separate state
+#     rna: [ANXA1, CLU, TACSTD2, YAP1, WWTR1, L1CAM, PKN2, CD55, EMP1, CLDN4, CALB1]
+#     atac_genes: [ANXA1, TACSTD2, WWTR1]
+#     # Removed vs. the original list:
+#     #   - LY6A: mouse Ly6a/Sca-1 has no clean 1:1 human ortholog by that name;
+#     #     don't use it on human data.
+#     #   - MYC: general WNT-target/proliferation gene, not fetal-reversion-
+#     #     specific - moved to malignant_epithelial_general below.
+#     #   - SOX2, NANOG: these are core PLURIPOTENCY/ESC TFs. Oncofetal
+#     #     reprogramming in gut reactivates a FETAL ENDODERM/gut program
+#     #     (YAP/TAZ, SOX9, revSC genes), not an iPSC-like pluripotency
+#     #     circuit - conflating the two paradigms was the biggest issue in
+#     #     the original file. (SOX2 does have a real, differently-sourced
+#     #     role in KRAS-mutant CSC formation - see the comment on
+#     #     malignant_epithelial_general.)
+#     # TF-ACTIVITY NOTE: TEAD1, JUND, "AP-1", TCF7 were flagged in your notes
+#     #   as elevated *regulon/motif activity* in this state, not necessarily
+#     #   RNA level. "AP-1" isn't a single gene (JUN/FOS dimer) and won't match
+#     #   a var_names lookup - these belong in a chromVAR/SCENIC-style motif
+#     #   analysis on your ATAC or RNA data, not a marker-gene list. Happy to
+#     #   help set that up if useful.
+
+#   premalignant_hybrid_emt:  # hybrid stem-like/EMT state, pre-malignant-specific
+#     rna: [SOX4, SOX9, DACH1, SNAI2, EMP1]
+#     atac_genes: [SOX9, DACH1]
+
+#   inflammation_regenerative_inflare:  # INFLARE-like; healthy/inflamed gut
+#                                        # (HuBMAP), not expected in tumor/liver-met
+#     rna: [ATF3, ATF4, CREB3L1, CREB3L2, SLC12A2, RGMB, LEFTY1, REG1A, TFF3, MUC6, NME2]
+#     atac_genes: [ATF3, MUC6]
+
+#   malignant_epithelial_general:  # broad "this is transformed CRC epithelium"
+#     rna: [MYC, CD44, TCF4, CEACAM5, CEACAM6, LAMC2, ITGA3, COL1A1, FOSL1]
+#     atac_genes: [MYC, CEACAM5]
+#     # LAMC2/ITGA3/COL1A1/FOSL1 were sourced from a pancreatic-cancer paper
+#     #   (10.1038/s43018-025-01065-3/4), not CRC-specific - treat as an
+#     #   extrapolation and sanity-check against your own malignant clusters.
+#     # SOX2's KRAS-mutant CSC role (Cancers 2025, 17(3):428): oncogenic RAS
+#     #   activates CDK1 -> protein O-GlcNAcylation -> SOX2 upregulation,
+#     #   driving CSC formation. Real, but mechanistically about RAS-driven
+#     #   dedifferentiation, not fetal-gut reversion - add SOX2 here (not to
+#     #   revival_fetal_reversion) if you want it in the config at all.
+
+#   metastasis_initiating_lgr5low:  # invasion-front / metastasis-initiating state
+#     rna: [L1CAM, EMP1, TACSTD2, CD70, OSMR, PROX1]
+#     atac_genes: [L1CAM, TACSTD2]
+#     # PROX1 is induced WITH this state and keeps it lineage-restricted; per
+#     #   your notes its restrictive FUNCTION (not necessarily its transcript)
+#     #   is lost later, licensing the non-canonical states below. So PROX1
+#     #   marks the intermediate step, not the endpoint.
+
+#   non_canonical_differentiation_neuroendocrine:  # further-progressed met. plasticity
+#     rna: [NEUROG3, INSM1, CHGA, CHGB, NEUROD1]
+#     atac_genes: [NEUROG3, INSM1]
+#     # NEUROG3 is from your note; CHGA/CHGB/NEUROD1/INSM1 filled in from
+#     #   general NE-differentiation knowledge since NEUROG3 alone is a thin
+#     #   panel. Swap in your actual intended set if this came from a specific
+#     #   supplementary table in the Moorman paper.
+
+#   non_canonical_differentiation_squamous:  # LOW CONFIDENCE - see note
+#     rna: [TP63, KRT5, KRT14]
+#     atac_genes: [TP63]
+#     # Your note here just said "IKZF4," and cut off. I did NOT carry IKZF4
+#     #   forward - it's a Treg/immune TF (Eos), not a squamous marker as far
+#     #   as I can find, so it read as a possible paste error rather than real
+#     #   signal. The three genes above are generic squamous-lineage markers
+#     #   from general knowledge, not from your source - replace if you have
+#     #   the real panel.
+
+#   # ---------------------------------------------------------------------
+#   # EPITHELIAL - normal differentiated lineages
+#   # ---------------------------------------------------------------------
+#   colonocyte:
+#     rna: [FABP1, CEACAM7, GUCA2A, GUCA2B, CA1, SLC26A3]
+#     atac_genes: [CA2, GUCA2A]
+
+#   goblet:
+#     rna: [MUC2, TFF3, SPINK4, ZG16, FCGBP, CLCA1]
+#     atac_genes: [MUC2, TFF3]
+#     # Your sheet also lists a lone "GATA5" under Goblet cells with no
+#     #   explanation - I couldn't confirm it as a standard goblet marker
+#     #   (it's more of a cardiac/gut-endoderm developmental TF), so I left it
+#     #   out rather than guess. Flag if you have the source for it.
+
+#   paneth:  # NEW - missing from the original list
+#     rna: [DEFA5, DEFA6, REG3A, PLA2G2A]
+#     atac_genes: [DEFA5, REG3A]
+
+#   tuft:  # NEW - missing from the original list
+#     rna: [POU2F3, DCLK1, TRPM5, AVIL]
+#     atac_genes: [POU2F3]
+
+#   enteroendocrine:
+#     rna: [CHGA, CHGB, NEUROD1, PYY, SCG2, TPH1, INSM1]
+#     atac_genes: [CHGA, NEUROD1]
+
+#   best4_absorptive:  # NEW, optional - rare pH-sensing subtype; drop if unneeded
+#     rna: [BEST4, OTOP2, CA7]
+#     atac_genes: [BEST4]
+
+#   # ---------------------------------------------------------------------
+#   # STROMAL
+#   # ---------------------------------------------------------------------
+#   fibroblast:  # includes the CAF-activation/signalling genes from the
+#                # PGE2-COX2-DACH1 stroma->epithelium plasticity axis
+#     rna: [DCN, COL1A1, COL1A2, COL3A1, COL5A1, PDGFRA, PDGFRB, LUM, THY1,
+#           FAP, ACTA2, PTGS2, VEGFA, VEGFC, GREM1, HGF]
+#     atac_genes: [COL1A1, PDGFRA, DCN]
+#     # PTGS2(COX2)/VEGFA/VEGFC/GREM1/HGF mark a CAF *signalling state* that
+#     #   drives the epithelial proCSC<->revCSC switch, not a separate cell
+#     #   type - kept here rather than spun out as its own bucket. Also from
+#     #   your notes: CAFs reportedly lose KANK1 (Hippo pathway) as plasticity-
+#     #   inducing capacity increases, and KRAS-driven TFCP2 activity can push
+#     #   CAFs toward a lipid-rich, VEGFA-high adipocyte-like state.
+#     # Not included: the CAF-responsive/-unresponsive gene sets (GRB10,
+#     #   DCBLD2, TENM3 / NRXN3, MGAM2) and IL1R1/GREM1/HGF-knockout SCI data -
+#     #   those are PDO functional-response biomarkers from a perturbation
+#     #   assay, not cell-identity markers, so they don't fit this scoring
+#     #   framework. Worth keeping as a separate reference table for WP2.
+
+#   pericyte_smc:  # NEW - missing; separates mural cells from fibroblasts
+#     rna: [RGS5, PDGFRB, NOTCH3, ACTA2, MYH11]
+#     atac_genes: [RGS5, NOTCH3]
+#     # ACTA2 overlaps the myofibroblast/CAF signal in `fibroblast` above -
+#     #   expected biological overlap, not an error.
+
+#   endothelial:
+#     rna: [PECAM1, VWF, CDH5, FLT1, CLDN5, PLVAP]
+#     atac_genes: [PECAM1, CDH5]
+
+#   lymphatic_endothelial:
+#     rna: [PROX1, LYVE1, PDPN, CCL21]
+#     atac_genes: [PROX1, LYVE1]
+#     # PROX1 here is the master lymphatic-EC TF - a different role from its
+#     #   epithelial appearance in metastasis_initiating_lgr5low above. Same
+#     #   gene symbol, unrelated biology; don't conflate hits across compartments.
+
+#   # ---------------------------------------------------------------------
+#   # IMMUNE - kept coarse, matching the WNN per-study coarse-typing design
+#   #   (fine subtyping - Treg/exhausted-T/cDC1 vs cDC2/etc. - is scoped for
+#   #   the later MultiVI cross-cohort atlas step per your project notes).
+#   #   Your t_cells sheet has stub headers (Naive/CD4-helper/Memory/
+#   #   Cytotoxic/NK) but no genes yet - say the word when you're ready to
+#   #   build that out and I'll pull from cell_type_markers_reference.ods.
+#   # ---------------------------------------------------------------------
+#   t_cell:
+#     rna: [CD3D, CD3E, CD3G, CD2, TRAC, IL7R, CD8A, CD4]
+#     atac_genes: [CD3D, CD3E]
+
+#   nk_cell:
+#     rna: [NKG7, GNLY, KLRD1, NCAM1, KLRF1]
+#     atac_genes: [NKG7, KLRD1]
+
+#   b_cell:
+#     rna: [MS4A1, CD19, CD79A, CD79B, PAX5, BANK1]
+#     atac_genes: [MS4A1, PAX5]
+
+#   plasma_cell:
+#     rna: [MZB1, JCHAIN, DERL3, SDC1, XBP1, TNFRSF17, SSR4, PRDM1]
+#     atac_genes: [PRDM1, XBP1]
+
+#   myeloid:
+#     rna: [LYZ, CD68, CD14, ITGAM, C1QA, C1QB, C1QC, FCGR3A, HLA-DRA, AIF1]
+#     atac_genes: [LYZ, SPI1, CD68]
+#     # In liver-met samples, cross-check myeloid+ clusters against
+#     #   `kupffer_cell` below - CD68/C1QA-C overlap substantially.
+
+#   mast_cell:
+#     rna: [TPSAB1, TPSB2, CPA3, KIT, MS4A2]
+#     atac_genes: [KIT, CPA3]
+
+#   # ---------------------------------------------------------------------
+#   # LIVER / CONTAMINATION FLAGS - for liver-metastasis samples (WUSTL
+#   #   cohort). Lets you flag clusters as genuine liver parenchyma/stroma
+#   #   instead of mislabeling them as generic fibroblast/myeloid/endothelial,
+#   #   or worse, as tumour epithelium.
+#   # ---------------------------------------------------------------------
+#   hepatocyte:
+#     rna: [ALB, APOA1, APOA2, TTR, HNF4A, CYP3A4, TAT, FGB, FGA, FGG]
+#     atac_genes: [ALB, APOA1, HNF4A]
+#     # ALB/APOA1/FGA-FGB-FGG are also classic ambient-RNA contaminants in
+#     #   droplet-based liver scRNA-seq. A LOW but UNIFORM signal spread across
+#     #   many/most clusters (rather than concentrated in one) points to
+#     #   residual ambient contamination even after CellBender, not real
+#     #   hepatocytes - worth a background-level sanity check before trusting
+#     #   a `hepatocyte` call in a low-scoring cluster.
+
+#   cholangiocyte:  # NEW
+#     rna: [KRT19, KRT7, SOX9, CFTR, EPCAM, HNF1B]
+#     atac_genes: [KRT7, HNF1B]
+#     # EPCAM/KRT19/SOX9 overlap with the tumour-epithelium markers above. In
+#     #   liver-met samples, weight CFTR/HNF1B/KRT7 more heavily - they're not
+#     #   expected in CRC tumour cells the way EPCAM/KRT19/SOX9 are.
+
+#   kupffer_cell:  # NEW
+#     rna: [CD68, MARCO, CD5L, VSIG4, CLEC4F, MRC1]
+#     atac_genes: [CLEC4F, VSIG4]
+
+#   liver_sinusoidal_endothelial:  # NEW
+#     rna: [STAB2, CLEC4G, FCN2, FCN3, LYVE1, CLEC1B]
+#     atac_genes: [STAB2, CLEC4G]
+
+#   hepatic_stellate_cell:  # NEW
+#     rna: [DES, PDGFRB, RGS5, LRAT, COL1A1]
+#     atac_genes: [LRAT, DES]
+#     # Overlaps `pericyte_smc`/`fibroblast` (PDGFRB, RGS5, COL1A1) by design;
+#     #   LRAT and DES are the more liver-stellate-specific discriminators.
+
+# # =============================================================================
+# # REMOVED FROM THE ORIGINAL FILE:
+# #   `inflammatory_premalignant` [IL1B, IL6, TNF, CXCL8, CCL2, PTGS2, DACH1]
+# #   This mixed three unrelated things into one "cell type": (1) generic
+# #   inflammatory cytokines that are mostly myeloid/stromal-derived, not
+# #   epithelial-intrinsic - scoring an epithelial cluster against them mostly
+# #   picks up ambient/doublet signal from co-clustering immune cells; (2) COX2
+# #   (PTGS2), which your own CAF data shows is a STROMAL/CAF marker, not
+# #   epithelial; and (3) DACH1, which IS a real epithelial marker but belongs
+# #   with premalignant_hybrid_emt above. Redistributed accordingly: DACH1 ->
+# #   premalignant_hybrid_emt, PTGS2 -> fibroblast, cytokines dropped (already
+# #   substantially covered by the myeloid bucket's own identity genes).
+# # =============================================================================

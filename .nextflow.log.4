@@ -1,0 +1,566 @@
+Jul-09 17:13:19.287 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet samplesheet_test3.csv --slurm_account lp_big_wice_cpu --outdir /scratch/leuven/359/vsc35918/efremova_test3 --genome hg38 --species human
+Jul-09 17:13:19.800 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Jul-09 17:13:19.898 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Jul-09 17:13:19.985 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-09 17:13:19.986 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-09 17:13:20.014 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-09 17:13:20.063 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-09 17:13:20.158 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-09 17:13:20.170 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-09 17:13:20.334 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
+Jul-09 17:13:20.348 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@160396db] - activable => nextflow.secret.LocalSecretsProvider@160396db
+Jul-09 17:13:20.436 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
+Jul-09 17:13:21.835 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
+Jul-09 17:13:21.879 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-09 17:13:21.898 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [nostalgic_brown] DSL2 - revision: 058a98b32e
+Jul-09 17:13:21.899 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-09 17:13:21.899 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-09 17:13:21.959 [main] DEBUG nextflow.Session - Session UUID: 32926d72-a0e4-4d4c-84f4-f5dd4f1e1f92
+Jul-09 17:13:21.959 [main] DEBUG nextflow.Session - Run name: nostalgic_brown
+Jul-09 17:13:21.960 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jul-09 17:13:21.970 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-09 17:13:21.978 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 17:13:22.007 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (23:19 CEST)
+  System: Linux 5.14.0-687.17.1.20260605.el9.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2+7
+  Encoding: UTF-8 (UTF-8)
+  Process: 3322254@i28l17 [10.118.228.70]
+  CPUs: 4 - Mem: 2 TB (1.7 TB) - Swap: 2 GB (1.7 GB)
+Jul-09 17:13:22.058 [main] DEBUG nextflow.Session - Work-dir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work [nfs]
+Jul-09 17:13:22.113 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-09 17:13:22.123 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-09 17:13:22.147 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-09 17:13:22.191 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-09 17:13:22.203 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jul-09 17:13:22.338 [main] DEBUG nextflow.Session - Session start
+Jul-09 17:13:22.343 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/trace.txt
+Jul-09 17:13:22.346 [main] DEBUG nextflow.Session - Trace file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/trace.txt -- enable the 'trace.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Trace file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/trace.txt -- enable the 'trace.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.TraceFileObserver.onFlowCreate(TraceFileObserver.groovy:206)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/trace.txt
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:262)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3012)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 9 common frames omitted
+Jul-09 17:13:22.350 [main] DEBUG nextflow.Session - Report file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Report file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.ReportObserver.onFlowCreate(ReportObserver.groovy:133)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Jul-09 17:13:22.350 [main] DEBUG nextflow.Session - Timeline file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Timeline file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TimelineObserver.onFlowCreate(TimelineObserver.groovy:76)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Jul-09 17:13:22.352 [main] DEBUG nextflow.Session - DAG file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/dag.html -- enable `dag.overwrite` in your config file to overwrite existing DAG files
+nextflow.exception.AbortOperationException: DAG file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/dag.html -- enable `dag.overwrite` in your config file to overwrite existing DAG files
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.trace.GraphObserver.onFlowCreate(GraphObserver.groovy:77)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Jul-09 17:13:22.854 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-09 17:13:23.679 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ATAC_IMPORT
+Jul-09 17:13:23.692 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.692 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.709 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Jul-09 17:13:23.719 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 30; pollInterval: 5s; dumpInterval: 5m 
+Jul-09 17:13:23.722 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Jul-09 17:13:23.723 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 60 seconds
+Jul-09 17:13:23.736 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Jul-09 17:13:23.761 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_IMPORT': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.803 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name ATAC_TSSE_THRESHOLD
+Jul-09 17:13:23.805 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.805 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.806 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_TSSE_THRESHOLD': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.817 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name ATAC_EMBED
+Jul-09 17:13:23.819 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.819 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.820 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_EMBED': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.827 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name RNA_IMPORT
+Jul-09 17:13:23.831 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.832 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.833 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_IMPORT': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.842 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name RNA_QC_EMBED
+Jul-09 17:13:23.845 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.846 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.847 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_QC_EMBED': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.853 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE
+Jul-09 17:13:23.855 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.855 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.856 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.871 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE
+Jul-09 17:13:23.872 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.873 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.873 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.883 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS
+Jul-09 17:13:23.886 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 17:13:23.887 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 17:13:23.889 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS': maxForks=0; fair=false; array=0
+Jul-09 17:13:23.896 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ANNOTATE, ATAC_IMPORT, ATAC_TSSE_THRESHOLD, WNN_INTEGRATE, PLOTS, RNA_QC_EMBED, ATAC_EMBED, RNA_IMPORT
+Jul-09 17:13:23.899 [main] DEBUG nextflow.Session - Igniting dataflow network (10)
+Jul-09 17:13:23.958 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_IMPORT
+Jul-09 17:13:23.958 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_TSSE_THRESHOLD
+Jul-09 17:13:23.958 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_EMBED
+Jul-09 17:13:23.958 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_IMPORT
+Jul-09 17:13:23.959 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_QC_EMBED
+Jul-09 17:13:23.959 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE
+Jul-09 17:13:23.961 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE
+Jul-09 17:13:23.962 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS
+Jul-09 17:13:23.962 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_429127fe1651e5b2: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/rna.nf
+  Script_9af17aaa4d2a514a: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/atac.nf
+  Script_1a5209d8ce9b18b5: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/wnn.nf
+  Script_030c1e5ac506a00b: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/main.nf
+Jul-09 17:13:23.962 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-09 17:13:23.962 [main] DEBUG nextflow.Session - Session await
+Jul-09 17:13:24.076 [Actor Thread 8] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25
+Jul-09 17:13:24.084 [Actor Thread 8] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26
+Jul-09 17:13:24.725 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC01) > jobId: 61416169; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9b/0aca3d3db294da70ed8898323b7933
+Jul-09 17:13:24.726 [Task submitter] INFO  nextflow.Session - [9b/0aca3d] Submitted process > ATAC_IMPORT (efremova_CRC01)
+Jul-09 17:13:30.052 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC02) > jobId: 61416170; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/e6/9694665e97eec79e13770048b6e9fc
+Jul-09 17:13:30.052 [Task submitter] INFO  nextflow.Session - [e6/969466] Submitted process > ATAC_IMPORT (efremova_CRC02)
+Jul-09 17:13:36.026 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC03) > jobId: 61416171; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/82/fed8387a8861b064981cf34cd5165a
+Jul-09 17:13:36.027 [Task submitter] INFO  nextflow.Session - [82/fed838] Submitted process > RNA_IMPORT (efremova_CRC03)
+Jul-09 17:13:42.034 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC02) > jobId: 61416172; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/89/af144881dd4e6e984d7b6c0d261180
+Jul-09 17:13:42.034 [Task submitter] INFO  nextflow.Session - [89/af1448] Submitted process > RNA_IMPORT (efremova_CRC02)
+Jul-09 17:13:48.082 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC01) > jobId: 61416173; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/87/81158dc1f6ab33c2db615d2d8eba09
+Jul-09 17:13:48.082 [Task submitter] INFO  nextflow.Session - [87/81158d] Submitted process > RNA_IMPORT (efremova_CRC01)
+Jul-09 17:13:54.072 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC03) > jobId: 61416178; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/3e4951fb258c00845139bdb2ec6d30
+Jul-09 17:13:54.073 [Task submitter] INFO  nextflow.Session - [bc/3e4951] Submitted process > ATAC_IMPORT (efremova_CRC03)
+Jul-09 17:14:18.740 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416173; id: 1; name: RNA_IMPORT (efremova_CRC01); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/87/81158dc1f6ab33c2db615d2d8eba09 started: 1783610058734; exited: 2026-07-09T15:14:17.920986704Z; ]
+Jul-09 17:14:18.741 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 17:14:18.797 [TaskFinalizer-1] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:14:43.735 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416171; id: 3; name: RNA_IMPORT (efremova_CRC03); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/82/fed8387a8861b064981cf34cd5165a started: 1783610048734; exited: 2026-07-09T15:14:18.176974992Z; ]
+Jul-09 17:14:43.738 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416172; id: 2; name: RNA_IMPORT (efremova_CRC02); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/89/af144881dd4e6e984d7b6c0d261180 started: 1783610053733; exited: 2026-07-09T15:14:18.75717015Z; ]
+Jul-09 17:14:43.748 [TaskFinalizer-2] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:14:43.762 [TaskFinalizer-3] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:14:44.132 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_QC_EMBED > jobId: 61416179; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/55/a68fe573909918b37623c919e9b5f7
+Jul-09 17:14:44.133 [Task submitter] INFO  nextflow.Session - [55/a68fe5] Submitted process > RNA_QC_EMBED
+Jul-09 17:17:23.748 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416179; id: 7; name: RNA_QC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/55/a68fe573909918b37623c919e9b5f7 started: 1783610118739; exited: 2026-07-09T15:17:05.072931801Z; ]
+Jul-09 17:17:23.873 [TaskFinalizer-4] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 17:17:23.915 [TaskFinalizer-4] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:17:38.772 [Task monitor] DEBUG nextflow.file.FileHelper - FS path type (true): /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work
+Jul-09 17:17:38.822 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416169; id: 4; name: ATAC_IMPORT (efremova_CRC01); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9b/0aca3d3db294da70ed8898323b7933 started: 1783610073751; exited: 2026-07-09T15:17:14.203964387Z; ]
+Jul-09 17:17:38.834 [TaskFinalizer-5] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:18:28.754 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416170; id: 5; name: ATAC_IMPORT (efremova_CRC02); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/e6/9694665e97eec79e13770048b6e9fc started: 1783610043731; exited: -; ]
+~> TaskHandler[jobId: 61416178; id: 6; name: ATAC_IMPORT (efremova_CRC03); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/3e4951fb258c00845139bdb2ec6d30 started: 1783610128739; exited: -; ]
+Jul-09 17:20:08.765 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416170; id: 5; name: ATAC_IMPORT (efremova_CRC02); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/e6/9694665e97eec79e13770048b6e9fc started: 1783610043731; exited: 2026-07-09T15:19:35.127251596Z; ]
+Jul-09 17:20:08.781 [TaskFinalizer-6] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:23:28.772 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416178; id: 6; name: ATAC_IMPORT (efremova_CRC03); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/3e4951fb258c00845139bdb2ec6d30 started: 1783610128739; exited: -; ]
+Jul-09 17:23:58.777 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416178; id: 6; name: ATAC_IMPORT (efremova_CRC03); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/3e4951fb258c00845139bdb2ec6d30 started: 1783610128739; exited: 2026-07-09T15:23:39.177914727Z; ]
+Jul-09 17:23:58.784 [TaskFinalizer-7] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:23:59.172 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_TSSE_THRESHOLD > jobId: 61416195; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d8/3ccf31e8bbed870fb805bc432e1c3e
+Jul-09 17:23:59.173 [Task submitter] INFO  nextflow.Session - [d8/3ccf31] Submitted process > ATAC_TSSE_THRESHOLD
+Jul-09 17:25:33.782 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416195; id: 8; name: ATAC_TSSE_THRESHOLD; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d8/3ccf31e8bbed870fb805bc432e1c3e started: 1783610733778; exited: 2026-07-09T15:25:09.292110095Z; ]
+Jul-09 17:25:33.815 [TaskFinalizer-8] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:25:34.132 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_EMBED > jobId: 61416210; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8a/af74e7aad2b871320c4595475fefd6
+Jul-09 17:25:34.132 [Task submitter] INFO  nextflow.Session - [8a/af74e7] Submitted process > ATAC_EMBED
+Jul-09 17:28:28.784 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416210; id: 9; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8a/af74e7aad2b871320c4595475fefd6 started: 1783610768778; exited: -; ]
+Jul-09 17:30:08.792 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416210; id: 9; name: ATAC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8a/af74e7aad2b871320c4595475fefd6 started: 1783610768778; exited: 2026-07-09T15:29:40.491920489Z; ]
+Jul-09 17:30:08.814 [TaskFinalizer-9] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:30:08.831 [Actor Thread 5] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26
+Jul-09 17:30:09.119 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE > jobId: 61416215; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9b/677e5a1b33720433f73a795cc11be8
+Jul-09 17:30:09.119 [Task submitter] INFO  nextflow.Session - [9b/677e5a] Submitted process > WNN_INTEGRATE
+Jul-09 17:33:13.803 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416215; id: 10; name: WNN_INTEGRATE; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9b/677e5a1b33720433f73a795cc11be8 started: 1783611098813; exited: 2026-07-09T15:32:20.02010432Z; ]
+Jul-09 17:33:13.819 [TaskFinalizer-10] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:33:14.156 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE > jobId: 61416222; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/70/259620917f84be167fc552fb77ac2b
+Jul-09 17:33:14.156 [Task submitter] INFO  nextflow.Session - [70/259620] Submitted process > ANNOTATE
+Jul-09 17:33:28.803 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416222; id: 11; name: ANNOTATE; status: SUBMITTED; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/70/259620917f84be167fc552fb77ac2b started: -; exited: -; ]
+Jul-09 17:34:28.808 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416222; id: 11; name: ANNOTATE; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/70/259620917f84be167fc552fb77ac2b started: 1783611238805; exited: 2026-07-09T15:34:26.729948Z; ]
+Jul-09 17:34:28.826 [TaskFinalizer-1] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:34:29.096 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS > jobId: 61416224; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d7/c45f4f8a52fbb944fe1151e7bef648
+Jul-09 17:34:29.096 [Task submitter] INFO  nextflow.Session - [d7/c45f4f] Submitted process > PLOTS
+Jul-09 17:35:08.809 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416224; id: 12; name: PLOTS; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d7/c45f4f8a52fbb944fe1151e7bef648 started: 1783611298807; exited: 2026-07-09T15:35:08.482119085Z; ]
+Jul-09 17:35:08.842 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-09 17:35:08.846 [TaskFinalizer-2] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.finalizeTask(TaskPollingMonitor.groovy:699)
+	at nextflow.processor.TaskPollingMonitor.safeFinalizeTask(TaskPollingMonitor.groovy:686)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_checkTaskStatus_lambda8.doCall(TaskPollingMonitor.groovy:676)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Jul-09 17:35:13.808 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Jul-09 17:35:13.809 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-09 17:35:13.812 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-09 17:35:13.812 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-09 17:35:13.817 [main] INFO  nextflow.Nextflow - 
+✅  Done. Results in /scratch/leuven/359/vsc35918/efremova_test3
+
+Jul-09 17:35:13.821 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=12; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4h 19m 28s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=40; peakMemory=264 GB; ]
+Jul-09 17:35:13.821 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-09 17:35:13.821 [main] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.await()" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.await()" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onFlowComplete(TraceFileObserver.groovy:221)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Jul-09 17:35:13.821 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-09 17:35:14.513 [main] WARN  nextflow.trace.ReportObserver - Failed to render execution report -- see the log file for details
+nextflow.exception.AbortOperationException: Report file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.ReportObserver.renderHtml(ReportObserver.groovy:284)
+	at nextflow.trace.ReportObserver.onFlowComplete(ReportObserver.groovy:143)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/report.html
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:262)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3012)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 12 common frames omitted
+Jul-09 17:35:14.515 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-09 17:35:14.578 [main] WARN  nextflow.trace.TimelineObserver - Failed to render execution timeline -- see the log file for details
+nextflow.exception.AbortOperationException: Timeline file already exists: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.TimelineObserver.renderHtml(TimelineObserver.groovy:178)
+	at nextflow.trace.TimelineObserver.onFlowComplete(TimelineObserver.groovy:87)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /scratch/leuven/359/vsc35918/efremova_test3/pipeline_info/timeline.html
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:262)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:3012)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 12 common frames omitted
+Jul-09 17:35:14.815 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-09 17:35:14.835 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-09 17:35:14.836 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

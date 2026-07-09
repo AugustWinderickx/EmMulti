@@ -1,0 +1,263 @@
+Jul-09 19:51:04.381 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet samplesheet_efremova.csv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/metastasis/test_pipeline/ --genome hg38 --species human
+Jul-09 19:51:04.803 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Jul-09 19:51:04.820 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Jul-09 19:51:04.846 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-09 19:51:04.847 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-09 19:51:04.849 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-09 19:51:04.859 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-09 19:51:04.876 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-09 19:51:04.878 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-09 19:51:04.924 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
+Jul-09 19:51:04.927 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@160396db] - activable => nextflow.secret.LocalSecretsProvider@160396db
+Jul-09 19:51:04.939 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
+Jul-09 19:51:05.584 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
+Jul-09 19:51:05.611 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-09 19:51:05.623 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [furious_picasso] DSL2 - revision: 225515d38b
+Jul-09 19:51:05.624 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-09 19:51:05.624 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-09 19:51:05.666 [main] DEBUG nextflow.Session - Session UUID: 47739217-d615-4f7f-8e70-6d071aff6338
+Jul-09 19:51:05.666 [main] DEBUG nextflow.Session - Run name: furious_picasso
+Jul-09 19:51:05.666 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jul-09 19:51:05.673 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-09 19:51:05.677 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 19:51:05.696 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (23:19 CEST)
+  System: Linux 5.14.0-687.17.1.20260605.el9.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2+7
+  Encoding: UTF-8 (UTF-8)
+  Process: 3426173@i28l17 [10.118.228.70]
+  CPUs: 4 - Mem: 2 TB (1.7 TB) - Swap: 2 GB (1.7 GB)
+Jul-09 19:51:05.718 [main] DEBUG nextflow.Session - Work-dir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work [nfs]
+Jul-09 19:51:05.757 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-09 19:51:05.769 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-09 19:51:05.794 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-09 19:51:05.819 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-09 19:51:05.826 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jul-09 19:51:05.883 [main] DEBUG nextflow.Session - Session start
+Jul-09 19:51:05.886 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /user/leuven/359/vsc35918/awinderickx/projects/crc/metastasis/test_pipeline/pipeline_info/trace.txt
+Jul-09 19:51:06.148 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-09 19:51:06.577 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ATAC_IMPORT
+Jul-09 19:51:06.585 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.586 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.595 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Jul-09 19:51:06.601 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 30; pollInterval: 5s; dumpInterval: 5m 
+Jul-09 19:51:06.602 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Jul-09 19:51:06.603 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 60 seconds
+Jul-09 19:51:06.615 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Jul-09 19:51:06.631 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_IMPORT': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.664 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name ATAC_TSSE_THRESHOLD
+Jul-09 19:51:06.665 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.665 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.666 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_TSSE_THRESHOLD': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.672 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name ATAC_EMBED
+Jul-09 19:51:06.673 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.673 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.673 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_EMBED': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.678 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name RNA_IMPORT
+Jul-09 19:51:06.679 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.679 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.680 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_IMPORT': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.685 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name RNA_QC_EMBED
+Jul-09 19:51:06.686 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.686 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.687 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_QC_EMBED': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.691 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE
+Jul-09 19:51:06.692 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.692 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.693 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.704 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE
+Jul-09 19:51:06.705 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.705 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.705 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.711 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS
+Jul-09 19:51:06.712 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-09 19:51:06.712 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-09 19:51:06.713 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS': maxForks=0; fair=false; array=0
+Jul-09 19:51:06.717 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ANNOTATE, ATAC_IMPORT, ATAC_TSSE_THRESHOLD, WNN_INTEGRATE, PLOTS, RNA_QC_EMBED, ATAC_EMBED, RNA_IMPORT
+Jul-09 19:51:06.719 [main] DEBUG nextflow.Session - Igniting dataflow network (10)
+Jul-09 19:51:06.724 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_IMPORT
+Jul-09 19:51:06.725 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_TSSE_THRESHOLD
+Jul-09 19:51:06.725 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_EMBED
+Jul-09 19:51:06.725 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_IMPORT
+Jul-09 19:51:06.725 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_QC_EMBED
+Jul-09 19:51:06.727 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE
+Jul-09 19:51:06.727 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE
+Jul-09 19:51:06.728 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS
+Jul-09 19:51:06.728 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_429127fe1651e5b2: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/rna.nf
+  Script_9af17aaa4d2a514a: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/atac.nf
+  Script_1a5209d8ce9b18b5: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/wnn.nf
+  Script_fae936def2b2e08a: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/main.nf
+Jul-09 19:51:06.728 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-09 19:51:06.728 [main] DEBUG nextflow.Session - Session await
+Jul-09 19:51:06.808 [Actor Thread 7] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25
+Jul-09 19:51:06.814 [Actor Thread 7] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26
+Jul-09 19:51:07.205 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC01) > jobId: 61416931; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/86/7e858d494856c3df3d49df9bc2084e
+Jul-09 19:51:07.205 [Task submitter] INFO  nextflow.Session - [86/7e858d] Submitted process > ATAC_IMPORT (efremova_CRC01)
+Jul-09 19:51:12.858 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC02) > jobId: 61416932; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/6b/6ff0346b8e20609c0112c2e9d550c8
+Jul-09 19:51:12.858 [Task submitter] INFO  nextflow.Session - [6b/6ff034] Submitted process > RNA_IMPORT (efremova_CRC02)
+Jul-09 19:51:18.857 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC03) > jobId: 61416933; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/fe/77fe2ac382c741b459d062f72beb96
+Jul-09 19:51:18.857 [Task submitter] INFO  nextflow.Session - [fe/77fe2a] Submitted process > RNA_IMPORT (efremova_CRC03)
+Jul-09 19:51:24.860 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC01) > jobId: 61416934; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/1c/92257271a5c0b409ee6f6d3f1d4181
+Jul-09 19:51:24.861 [Task submitter] INFO  nextflow.Session - [1c/922572] Submitted process > RNA_IMPORT (efremova_CRC01)
+Jul-09 19:51:30.865 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC03) > jobId: 61416935; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f3/8d43d1f00e3dde76836ca74b7c097e
+Jul-09 19:51:30.867 [Task submitter] INFO  nextflow.Session - [f3/8d43d1] Submitted process > ATAC_IMPORT (efremova_CRC03)
+Jul-09 19:51:36.864 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC04) > jobId: 61416936; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/94/cda76f26d698c12adaa548bfade874
+Jul-09 19:51:36.864 [Task submitter] INFO  nextflow.Session - [94/cda76f] Submitted process > ATAC_IMPORT (efremova_CRC04)
+Jul-09 19:51:42.847 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC04) > jobId: 61416937; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a6/6e346c27062926d9703897f50e5cd1
+Jul-09 19:51:42.847 [Task submitter] INFO  nextflow.Session - [a6/6e346c] Submitted process > RNA_IMPORT (efremova_CRC04)
+Jul-09 19:51:48.858 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC02) > jobId: 61416938; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a1/b5eb8133854355c63c88343dbbd813
+Jul-09 19:51:48.859 [Task submitter] INFO  nextflow.Session - [a1/b5eb81] Submitted process > ATAC_IMPORT (efremova_CRC02)
+Jul-09 19:51:54.858 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC05) > jobId: 61416940; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/1e/2df155fea155ecb8e34a905ec7c510
+Jul-09 19:51:54.858 [Task submitter] INFO  nextflow.Session - [1e/2df155] Submitted process > ATAC_IMPORT (efremova_CRC05)
+Jul-09 19:52:00.846 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC06) > jobId: 61416943; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/7b/f3218167199386c8ec9e761926f815
+Jul-09 19:52:00.846 [Task submitter] INFO  nextflow.Session - [7b/f32181] Submitted process > RNA_IMPORT (efremova_CRC06)
+Jul-09 19:52:06.893 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC08) > jobId: 61416944; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8e/c831cc24ddd3d02bcbc676bab8de15
+Jul-09 19:52:06.893 [Task submitter] INFO  nextflow.Session - [8e/c831cc] Submitted process > ATAC_IMPORT (efremova_CRC08)
+Jul-09 19:52:12.852 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC06) > jobId: 61416945; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/b0/a8050eb2d39a72fb2525c1c9535678
+Jul-09 19:52:12.853 [Task submitter] INFO  nextflow.Session - [b0/a8050e] Submitted process > ATAC_IMPORT (efremova_CRC06)
+Jul-09 19:52:16.626 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416932; id: 4; name: RNA_IMPORT (efremova_CRC02); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/6b/6ff0346b8e20609c0112c2e9d550c8 started: 1783619536623; exited: 2026-07-09T17:52:10.897425853Z; ]
+Jul-09 19:52:16.627 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 19:52:16.632 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416933; id: 5; name: RNA_IMPORT (efremova_CRC03); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/fe/77fe2ac382c741b459d062f72beb96 started: 1783619536629; exited: 2026-07-09T17:52:10.179298657Z; ]
+Jul-09 19:52:16.635 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416934; id: 1; name: RNA_IMPORT (efremova_CRC01); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/1c/92257271a5c0b409ee6f6d3f1d4181 started: 1783619536633; exited: 2026-07-09T17:52:10.713280908Z; ]
+Jul-09 19:52:16.638 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416937; id: 7; name: RNA_IMPORT (efremova_CRC04); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a6/6e346c27062926d9703897f50e5cd1 started: 1783619536636; exited: 2026-07-09T17:52:14.290598132Z; ]
+Jul-09 19:52:18.849 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC07) > jobId: 61416947; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/70/eb3a25c7f664142c6d40e54d0036da
+Jul-09 19:52:18.850 [Task submitter] INFO  nextflow.Session - [70/eb3a25] Submitted process > RNA_IMPORT (efremova_CRC07)
+Jul-09 19:52:24.859 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC09) > jobId: 61416948; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f0/2b104389af480da1c0947ca4bd9bb0
+Jul-09 19:52:24.859 [Task submitter] INFO  nextflow.Session - [f0/2b1043] Submitted process > ATAC_IMPORT (efremova_CRC09)
+Jul-09 19:52:30.861 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC10) > jobId: 61416949; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/0f2da8f5e17fc8c104863d6f4473af
+Jul-09 19:52:30.861 [Task submitter] INFO  nextflow.Session - [bc/0f2da8] Submitted process > ATAC_IMPORT (efremova_CRC10)
+Jul-09 19:52:36.867 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC11) > jobId: 61416950; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/5e/814433bf867e14dece91e3dc4a4c83
+Jul-09 19:52:36.868 [Task submitter] INFO  nextflow.Session - [5e/814433] Submitted process > ATAC_IMPORT (efremova_CRC11)
+Jul-09 19:52:42.845 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC08) > jobId: 61416951; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/2e/4d4f5d92c086ab83a1120a8b2c72c1
+Jul-09 19:52:42.846 [Task submitter] INFO  nextflow.Session - [2e/4d4f5d] Submitted process > RNA_IMPORT (efremova_CRC08)
+Jul-09 19:52:48.879 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC07) > jobId: 61416952; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/af/df0c39195c2213acaf5fc126b49a5c
+Jul-09 19:52:48.879 [Task submitter] INFO  nextflow.Session - [af/df0c39] Submitted process > ATAC_IMPORT (efremova_CRC07)
+Jul-09 19:52:54.846 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC05) > jobId: 61416953; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bd/bc408801306765a0174f2e1d16fb68
+Jul-09 19:52:54.846 [Task submitter] INFO  nextflow.Session - [bd/bc4088] Submitted process > RNA_IMPORT (efremova_CRC05)
+Jul-09 19:53:00.868 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC09) > jobId: 61416956; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/aa/9bab6bfaaca53017df789d2ccf7a34
+Jul-09 19:53:00.868 [Task submitter] INFO  nextflow.Session - [aa/9bab6b] Submitted process > RNA_IMPORT (efremova_CRC09)
+Jul-09 19:53:06.857 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC10) > jobId: 61416957; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/15/7621c0fa52e10b5c22a7655b39cbf1
+Jul-09 19:53:06.858 [Task submitter] INFO  nextflow.Session - [15/7621c0] Submitted process > RNA_IMPORT (efremova_CRC10)
+Jul-09 19:53:12.859 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC12) > jobId: 61416958; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/61/1badbfe037f437e96de037bb66982c
+Jul-09 19:53:12.859 [Task submitter] INFO  nextflow.Session - [61/1badbf] Submitted process > ATAC_IMPORT (efremova_CRC12)
+Jul-09 19:53:16.628 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416943; id: 12; name: RNA_IMPORT (efremova_CRC06); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/7b/f3218167199386c8ec9e761926f815 started: 1783619596626; exited: 2026-07-09T17:53:11.609325484Z; ]
+Jul-09 19:53:16.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416947; id: 13; name: RNA_IMPORT (efremova_CRC07); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/70/eb3a25c7f664142c6d40e54d0036da started: 1783619596630; exited: 2026-07-09T17:53:16.556418157Z; ]
+Jul-09 19:53:16.637 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416951; id: 14; name: RNA_IMPORT (efremova_CRC08); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/2e/4d4f5d92c086ab83a1120a8b2c72c1 started: 1783619596635; exited: 2026-07-09T17:53:15.770458175Z; ]
+Jul-09 19:53:16.640 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416953; id: 10; name: RNA_IMPORT (efremova_CRC05); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bd/bc408801306765a0174f2e1d16fb68 started: 1783619596638; exited: 2026-07-09T17:53:13.983549329Z; ]
+Jul-09 19:53:18.851 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC11) > jobId: 61416959; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a7/c13316dd8d45157756adcf7b9f5ac9
+Jul-09 19:53:18.852 [Task submitter] INFO  nextflow.Session - [a7/c13316] Submitted process > RNA_IMPORT (efremova_CRC11)
+Jul-09 19:53:24.851 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC15) > jobId: 61416960; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/76/bef46c0fd550a0ed1d67a94e6d1183
+Jul-09 19:53:24.851 [Task submitter] INFO  nextflow.Session - [76/bef46c] Submitted process > ATAC_IMPORT (efremova_CRC15)
+Jul-09 19:53:30.859 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC14) > jobId: 61416961; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9d/d8697f5c253a564d263ea58c06d1e1
+Jul-09 19:53:30.860 [Task submitter] INFO  nextflow.Session - [9d/d8697f] Submitted process > ATAC_IMPORT (efremova_CRC14)
+Jul-09 19:53:36.865 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC12) > jobId: 61416962; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/28/621366ffb2223f69d921fd90d23ddb
+Jul-09 19:53:36.866 [Task submitter] INFO  nextflow.Session - [28/621366] Submitted process > RNA_IMPORT (efremova_CRC12)
+Jul-09 19:53:42.865 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC13) > jobId: 61416963; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/c7/1ed9cf16f5de740bfc7777b0889f0c
+Jul-09 19:53:42.866 [Task submitter] INFO  nextflow.Session - [c7/1ed9cf] Submitted process > ATAC_IMPORT (efremova_CRC13)
+Jul-09 19:53:48.854 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC13) > jobId: 61416964; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9e/35e4ccc2910e1daac15ea00d010d63
+Jul-09 19:53:48.854 [Task submitter] INFO  nextflow.Session - [9e/35e4cc] Submitted process > RNA_IMPORT (efremova_CRC13)
+Jul-09 19:53:54.859 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC14) > jobId: 61416965; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/c1/7936841afe5c6be77380974d2608a4
+Jul-09 19:53:54.859 [Task submitter] INFO  nextflow.Session - [c1/793684] Submitted process > RNA_IMPORT (efremova_CRC14)
+Jul-09 19:53:56.618 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416940; id: 9; name: ATAC_IMPORT (efremova_CRC05); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/1e/2df155fea155ecb8e34a905ec7c510 started: 1783619536638; exited: 2026-07-09T17:53:23.999538193Z; ]
+Jul-09 19:53:56.635 [TaskFinalizer-9] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-09 19:54:00.851 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC17) > jobId: 61416968; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a5/7253ea0fd05686b3252308d9b5b60e
+Jul-09 19:54:00.851 [Task submitter] INFO  nextflow.Session - [a5/7253ea] Submitted process > RNA_IMPORT (efremova_CRC17)
+Jul-09 19:54:06.853 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC15) > jobId: 61416969; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/ae/bd27d65db19034b57beaa348cd1550
+Jul-09 19:54:06.853 [Task submitter] INFO  nextflow.Session - [ae/bd27d6] Submitted process > RNA_IMPORT (efremova_CRC15)
+Jul-09 19:54:12.857 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC16) > jobId: 61416970; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f9/b8bd710e6115d2f5bf4e2e295daf9d
+Jul-09 19:54:12.857 [Task submitter] INFO  nextflow.Session - [f9/b8bd71] Submitted process > RNA_IMPORT (efremova_CRC16)
+Jul-09 19:54:16.657 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416956; id: 17; name: RNA_IMPORT (efremova_CRC09); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/aa/9bab6bfaaca53017df789d2ccf7a34 started: 1783619656631; exited: 2026-07-09T17:54:15.209329834Z; ]
+Jul-09 19:54:16.665 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416959; id: 23; name: RNA_IMPORT (efremova_CRC11); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a7/c13316dd8d45157756adcf7b9f5ac9 started: 1783619656663; exited: 2026-07-09T17:54:11.619509383Z; ]
+Jul-09 19:54:16.668 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416962; id: 28; name: RNA_IMPORT (efremova_CRC12); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/28/621366ffb2223f69d921fd90d23ddb started: 1783619656667; exited: 2026-07-09T17:54:13.012535103Z; ]
+Jul-09 19:54:16.675 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416964; id: 29; name: RNA_IMPORT (efremova_CRC13); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9e/35e4ccc2910e1daac15ea00d010d63 started: 1783619656672; exited: 2026-07-09T17:54:10.566561912Z; ]
+Jul-09 19:54:18.849 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC17) > jobId: 61416973; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/3f/0d993ac688900a4bf4d47e8739736f
+Jul-09 19:54:18.850 [Task submitter] INFO  nextflow.Session - [3f/0d993a] Submitted process > ATAC_IMPORT (efremova_CRC17)
+Jul-09 19:54:24.854 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC16) > jobId: 61416974; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/79/6aede58f056ffca7362774ffe031c8
+Jul-09 19:54:24.854 [Task submitter] INFO  nextflow.Session - [79/6aede5] Submitted process > ATAC_IMPORT (efremova_CRC16)
+Jul-09 19:54:26.618 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416965; id: 30; name: RNA_IMPORT (efremova_CRC14); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/c1/7936841afe5c6be77380974d2608a4 started: 1783619656675; exited: 2026-07-09T17:54:24.413452762Z; ]
+Jul-09 19:54:41.619 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416957; id: 20; name: RNA_IMPORT (efremova_CRC10); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/15/7621c0fa52e10b5c22a7655b39cbf1 started: 1783619651617; exited: 2026-07-09T17:54:14.160382228Z; ]
+Jul-09 19:54:56.618 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416936; id: 8; name: ATAC_IMPORT (efremova_CRC04); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/94/cda76f26d698c12adaa548bfade874 started: 1783619526612; exited: 2026-07-09T17:54:55.685305616Z; ]
+Jul-09 19:55:11.624 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416969; id: 31; name: RNA_IMPORT (efremova_CRC15); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/ae/bd27d65db19034b57beaa348cd1550 started: 1783619711619; exited: 2026-07-09T17:55:11.114568307Z; ]
+Jul-09 19:55:16.633 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416938; id: 3; name: ATAC_IMPORT (efremova_CRC02); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a1/b5eb8133854355c63c88343dbbd813 started: 1783619531611; exited: 2026-07-09T17:55:12.94347445Z; ]
+Jul-09 19:55:21.620 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416968; id: 34; name: RNA_IMPORT (efremova_CRC17); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a5/7253ea0fd05686b3252308d9b5b60e started: 1783619716634; exited: 2026-07-09T17:55:20.867569615Z; ]
+Jul-09 19:55:21.621 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416970; id: 33; name: RNA_IMPORT (efremova_CRC16); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f9/b8bd710e6115d2f5bf4e2e295daf9d started: 1783619716635; exited: 2026-07-09T17:55:18.542343395Z; ]
+Jul-09 19:55:21.947 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_QC_EMBED > jobId: 61416979; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/4d/86459fb1517a160836e7b7e654f870
+Jul-09 19:55:21.947 [Task submitter] INFO  nextflow.Session - [4d/86459f] Submitted process > RNA_QC_EMBED
+Jul-09 19:55:26.620 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416931; id: 2; name: ATAC_IMPORT (efremova_CRC01); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/86/7e858d494856c3df3d49df9bc2084e started: 1783619536622; exited: 2026-07-09T17:55:14.170380807Z; ]
+Jul-09 19:55:51.620 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416949; id: 19; name: ATAC_IMPORT (efremova_CRC10); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/bc/0f2da8f5e17fc8c104863d6f4473af started: 1783619596633; exited: 2026-07-09T17:55:38.397328782Z; ]
+Jul-09 19:55:51.622 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416950; id: 21; name: ATAC_IMPORT (efremova_CRC11); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/5e/814433bf867e14dece91e3dc4a4c83 started: 1783619596634; exited: 2026-07-09T17:55:14.170380803Z; ]
+Jul-09 19:55:51.627 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416958; id: 22; name: ATAC_IMPORT (efremova_CRC12); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/61/1badbfe037f437e96de037bb66982c started: 1783619656658; exited: 2026-07-09T17:55:51.092525762Z; ]
+Jul-09 19:56:11.619 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 11 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416935; id: 6; name: ATAC_IMPORT (efremova_CRC03); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f3/8d43d1f00e3dde76836ca74b7c097e started: 1783619536635; exited: -; ]
+~> TaskHandler[jobId: 61416944; id: 16; name: ATAC_IMPORT (efremova_CRC08); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8e/c831cc24ddd3d02bcbc676bab8de15 started: 1783619591613; exited: -; ]
+~> TaskHandler[jobId: 61416945; id: 11; name: ATAC_IMPORT (efremova_CRC06); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/b0/a8050eb2d39a72fb2525c1c9535678 started: 1783619596629; exited: -; ]
+~> TaskHandler[jobId: 61416948; id: 18; name: ATAC_IMPORT (efremova_CRC09); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f0/2b104389af480da1c0947ca4bd9bb0 started: 1783619596631; exited: -; ]
+~> TaskHandler[jobId: 61416952; id: 15; name: ATAC_IMPORT (efremova_CRC07); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/af/df0c39195c2213acaf5fc126b49a5c started: 1783619596637; exited: -; ]
+~> TaskHandler[jobId: 61416960; id: 26; name: ATAC_IMPORT (efremova_CRC15); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/76/bef46c0fd550a0ed1d67a94e6d1183 started: 1783619656665; exited: -; ]
+~> TaskHandler[jobId: 61416961; id: 25; name: ATAC_IMPORT (efremova_CRC14); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9d/d8697f5c253a564d263ea58c06d1e1 started: 1783619656666; exited: -; ]
+~> TaskHandler[jobId: 61416963; id: 24; name: ATAC_IMPORT (efremova_CRC13); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/c7/1ed9cf16f5de740bfc7777b0889f0c started: 1783619656669; exited: -; ]
+~> TaskHandler[jobId: 61416973; id: 32; name: ATAC_IMPORT (efremova_CRC17); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/3f/0d993ac688900a4bf4d47e8739736f started: 1783619706617; exited: -; ]
+~> TaskHandler[jobId: 61416974; id: 27; name: ATAC_IMPORT (efremova_CRC16); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/79/6aede58f056ffca7362774ffe031c8 started: 1783619716636; exited: -; ]
+Jul-09 19:57:21.624 [Task monitor] DEBUG nextflow.file.FileHelper - FS path type (true): /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work
+Jul-09 19:57:21.665 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416961; id: 25; name: ATAC_IMPORT (efremova_CRC14); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/9d/d8697f5c253a564d263ea58c06d1e1 started: 1783619656666; exited: 2026-07-09T17:57:12.080389906Z; ]
+Jul-09 19:58:16.626 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416935; id: 6; name: ATAC_IMPORT (efremova_CRC03); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f3/8d43d1f00e3dde76836ca74b7c097e started: 1783619536635; exited: 2026-07-09T17:58:13.971383923Z; ]
+Jul-09 19:58:56.629 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416963; id: 24; name: ATAC_IMPORT (efremova_CRC13); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/c7/1ed9cf16f5de740bfc7777b0889f0c started: 1783619656669; exited: 2026-07-09T17:58:27.958399013Z; ]
+Jul-09 19:59:21.635 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416948; id: 18; name: ATAC_IMPORT (efremova_CRC09); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f0/2b104389af480da1c0947ca4bd9bb0 started: 1783619596631; exited: 2026-07-09T17:59:03.784339786Z; ]
+Jul-09 19:59:36.629 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416973; id: 32; name: ATAC_IMPORT (efremova_CRC17); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/3f/0d993ac688900a4bf4d47e8739736f started: 1783619706617; exited: 2026-07-09T17:59:35.714294706Z; ]
+Jul-09 19:59:56.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416960; id: 26; name: ATAC_IMPORT (efremova_CRC15); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/76/bef46c0fd550a0ed1d67a94e6d1183 started: 1783619656665; exited: 2026-07-09T17:59:22.073476969Z; ]
+Jul-09 20:00:56.633 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416945; id: 11; name: ATAC_IMPORT (efremova_CRC06); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/b0/a8050eb2d39a72fb2525c1c9535678 started: 1783619596629; exited: 2026-07-09T18:00:48.54436796Z; ]
+Jul-09 20:01:11.631 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 4 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416944; id: 16; name: ATAC_IMPORT (efremova_CRC08); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8e/c831cc24ddd3d02bcbc676bab8de15 started: 1783619591613; exited: -; ]
+~> TaskHandler[jobId: 61416952; id: 15; name: ATAC_IMPORT (efremova_CRC07); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/af/df0c39195c2213acaf5fc126b49a5c started: 1783619596637; exited: -; ]
+~> TaskHandler[jobId: 61416974; id: 27; name: ATAC_IMPORT (efremova_CRC16); status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/79/6aede58f056ffca7362774ffe031c8 started: 1783619716636; exited: -; ]
+~> TaskHandler[jobId: 61416979; id: 35; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/4d/86459fb1517a160836e7b7e654f870 started: 1783619776637; exited: -; ]
+Jul-09 20:01:21.655 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416944; id: 16; name: ATAC_IMPORT (efremova_CRC08); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/8e/c831cc24ddd3d02bcbc676bab8de15 started: 1783619591613; exited: 2026-07-09T18:00:26.522459964Z; ]
+Jul-09 20:02:51.634 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416952; id: 15; name: ATAC_IMPORT (efremova_CRC07); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/af/df0c39195c2213acaf5fc126b49a5c started: 1783619596637; exited: 2026-07-09T18:02:48.57935999Z; ]
+Jul-09 20:04:31.665 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416974; id: 27; name: ATAC_IMPORT (efremova_CRC16); status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/79/6aede58f056ffca7362774ffe031c8 started: 1783619716636; exited: 2026-07-09T18:04:25.859237088Z; ]
+Jul-09 20:04:31.981 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_TSSE_THRESHOLD > jobId: 61417024; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/62/3aec795fa137d8f17051bb1973c0db
+Jul-09 20:04:31.982 [Task submitter] INFO  nextflow.Session - [62/3aec79] Submitted process > ATAC_TSSE_THRESHOLD
+Jul-09 20:05:31.655 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61417024; id: 36; name: ATAC_TSSE_THRESHOLD; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/62/3aec795fa137d8f17051bb1973c0db started: 1783620331653; exited: 2026-07-09T18:05:19.823303474Z; ]
+Jul-09 20:05:32.025 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_EMBED > jobId: 61417031; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a9/3eece973744f1fa0be0b699daa4dd5
+Jul-09 20:05:32.025 [Task submitter] INFO  nextflow.Session - [a9/3eece9] Submitted process > ATAC_EMBED
+Jul-09 20:06:11.639 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61416979; id: 35; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/4d/86459fb1517a160836e7b7e654f870 started: 1783619776637; exited: -; ]
+~> TaskHandler[jobId: 61417031; id: 37; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a9/3eece973744f1fa0be0b699daa4dd5 started: 1783620366639; exited: -; ]
+Jul-09 20:09:36.812 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61416979; id: 35; name: RNA_QC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/4d/86459fb1517a160836e7b7e654f870 started: 1783619776637; exited: 2026-07-09T18:09:19.524239658Z; ]
+Jul-09 20:11:11.649 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61417031; id: 37; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a9/3eece973744f1fa0be0b699daa4dd5 started: 1783620366639; exited: -; ]
+Jul-09 20:16:11.665 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61417031; id: 37; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a9/3eece973744f1fa0be0b699daa4dd5 started: 1783620366639; exited: -; ]
+Jul-09 20:20:41.671 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61417031; id: 37; name: ATAC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/a9/3eece973744f1fa0be0b699daa4dd5 started: 1783620366639; exited: 2026-07-09T18:20:41.441218023Z; ]
+Jul-09 20:20:41.696 [Actor Thread 2] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26
+Jul-09 20:20:41.997 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE > jobId: 61417121; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d4/515ae6341d612915f9b9de345f1e70
+Jul-09 20:20:41.998 [Task submitter] INFO  nextflow.Session - [d4/515ae6] Submitted process > WNN_INTEGRATE
+Jul-09 20:21:11.672 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61417121; id: 38; name: WNN_INTEGRATE; status: SUBMITTED; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d4/515ae6341d612915f9b9de345f1e70 started: -; exited: -; ]
+Jul-09 20:26:11.679 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61417121; id: 38; name: WNN_INTEGRATE; status: RUNNING; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d4/515ae6341d612915f9b9de345f1e70 started: 1783621271673; exited: -; ]
+Jul-09 20:27:16.683 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61417121; id: 38; name: WNN_INTEGRATE; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/d4/515ae6341d612915f9b9de345f1e70 started: 1783621271673; exited: 2026-07-09T18:27:00.763250125Z; ]
+Jul-09 20:27:16.986 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE > jobId: 61417142; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/0d/082c6088ad749c4de967fb753011db
+Jul-09 20:27:16.986 [Task submitter] INFO  nextflow.Session - [0d/082c60] Submitted process > ANNOTATE
+Jul-09 20:30:11.690 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61417142; id: 39; name: ANNOTATE; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/0d/082c6088ad749c4de967fb753011db started: 1783621716703; exited: 2026-07-09T18:29:19.249325257Z; ]
+Jul-09 20:30:12.036 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS > jobId: 61417155; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f7/4f49aaf7f80fe76c6d5034153bd78b
+Jul-09 20:30:12.036 [Task submitter] INFO  nextflow.Session - [f7/4f49aa] Submitted process > PLOTS
+Jul-09 20:31:11.689 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61417155; id: 40; name: PLOTS; status: SUBMITTED; exit: -; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f7/4f49aaf7f80fe76c6d5034153bd78b started: -; exited: -; ]
+Jul-09 20:31:41.692 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61417155; id: 40; name: PLOTS; status: COMPLETED; exit: 0; error: -; workDir: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/work/f7/4f49aaf7f80fe76c6d5034153bd78b started: 1783621871689; exited: 2026-07-09T18:31:26.764233164Z; ]
+Jul-09 20:31:41.736 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-09 20:31:46.690 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Jul-09 20:31:46.690 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-09 20:31:46.694 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-09 20:31:46.695 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-09 20:31:46.699 [main] INFO  nextflow.Nextflow - 
+✅  Done. Results in /user/leuven/359/vsc35918/awinderickx/projects/crc/metastasis/test_pipeline/
+
+Jul-09 20:31:46.703 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=40; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=19h 50m 24s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=17; peakCpus=124; peakMemory=744 GB; ]
+Jul-09 20:31:46.703 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-09 20:31:46.704 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-09 20:31:47.434 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-09 20:31:47.538 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-09 20:31:47.555 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-09 20:31:47.556 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

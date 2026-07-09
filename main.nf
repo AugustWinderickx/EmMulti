@@ -1,123 +1,70 @@
+#!/usr/bin/env nextflow
 nextflow.enable.dsl = 2
 
-params.atac_dir   = "/lustre1/project/stg_00064/awinderickx/data/crc_reverse/metastasis/multiome/efremova/atac"
-params.outdir     = "results"
+include { ATAC_IMPORT; ATAC_TSSE_THRESHOLD; ATAC_EMBED } from './modules/atac.nf'
+include { RNA_IMPORT; RNA_QC_EMBED }                     from './modules/rna.nf'
+include { WNN_INTEGRATE; ANNOTATE; PLOTS }               from './modules/wnn.nf'
 
-process ATAC_STAGE1_QC {
-    tag "${study}_${sample}"
-    
-    input:
-    tuple val(study), val(sample), path(fragments)
+def helpMessage() {
+    log.info """
+    multiome-wnn-nf — snRNA + snATAC (SnapATAC2 -> scanpy -> muon/WNN) broad
+    cell-type annotation for CRC / healthy gut.
 
-    output:
-    tuple val(study), val(sample), path("${study}_${sample}_raw.h5ad"), emit: h5ad
-    path "${study}_${sample}_tsse.txt", emit: tsse_txt
+    Usage:
+      nextflow run main.nf -profile vsc --samplesheet assets/samplesheet.csv \\
+          --outdir results --genome hg38
 
-    script:
-    """
-    atac_stage1_qc.py \\
-        --fragments ${fragments} \\
-        --study_id ${study} \\
-        --sample_id ${sample} \\
-        --output_h5ad ${study}_${sample}_raw.h5ad \\
-        --output_txt ${study}_${sample}_tsse.txt
-    """
-}
-
-process ATAC_STAGE2_GLOBAL_THRESHOLD {
-    tag "${study}_global_qc"
-    publishDir "${params.outdir}/${study}/atac/qc_plots", mode: 'copy', pattern: "*.png"
-    
-    input:
-    tuple val(study), path(tsse_files)
-
-    output:
-    path "threshold.txt", emit: thresh_val
-    path "${study}_global_tsse_histogram.png"
-
-    script:
-    """
-    atac_stage2_global_threshold.py \\
-        --inputs ${tsse_files} \\
-        --study_id ${study}
-    """
-}
-
-process ATAC_STAGE3_PROCESS {
-    tag "${study}_${sample}"
-    
-    input:
-    tuple val(study), val(sample), path(raw_h5ad)
-    val global_thresh
-
-    output:
-    tuple val(study), path("${study}_${sample}_processed.h5ad")
-
-    script:
-    """
-    atac_stage3_process.py \\
-        --input_h5ad ${raw_h5ad} \\
-        --global_thresh ${global_thresh} \\
-        --study_id ${study} \\
-        --sample_id ${sample} \\
-        --output_h5ad ${study}_${sample}_processed.h5ad
-    """
-}
-
-process MERGE_AND_HARMONY_ATAC {
-    tag "${study}_atlas"
-    publishDir "${params.outdir}/${study}/atac", mode: 'copy'
-
-    input:
-    tuple val(study), path(h5ad_files)
-
-    output:
-    path "${study}_combined_atac.h5ad"
-
-    script:
-    """
-    merge_atac_and_embed.py \\
-        --inputs ${h5ad_files} \\
-        --output ${study}_combined_atac.h5ad
-    """
+    Key params (see nextflow.config for all + defaults):
+      --samplesheet          CSV: study,sample,atac_fragments,rna_h5
+      --outdir               results directory
+      --genome               hg38 | mm10
+      --species              human | mouse
+      --tsse_mode            per_sample | global   (auto TSSe dip)
+      --markers              marker YAML (default assets/markers.yaml)
+      --primary_resolution   leiden resolution used for annotation
+    """.stripIndent()
 }
 
 workflow {
-    atac_ch = Channel
-        .fromPath("${params.atac_dir}/*_*_fragments.tsv.gz")
-        .map { file ->
-            def parts = file.name.tokenize('_')
-            tuple(parts[0], parts[1], file) // study, sample, file
+    if (params.help) { helpMessage(); exit 0 }
+
+    // ---- parse samplesheet -> per-sample channels -------------------------
+    Channel
+        .fromPath(params.samplesheet, checkIfExists: true)
+        .splitCsv(header: true)
+        .map { row ->
+            def meta = [study: row.study, sample: row.sample,
+                        id: "${row.study}_${row.sample}"]
+            def frag = file(row.atac_fragments, checkIfExists: true)
+            def tbi  = file("${row.atac_fragments}.tbi")   // tabix index alongside
+            def rna  = file(row.rna_h5, checkIfExists: true)
+            [meta, frag, tbi, rna]
         }
+        .set { samples }
 
-    // 1. Calculate raw metric files in parallel across Slurm nodes
-    stage1_out = ATAC_STAGE1_QC(atac_ch)
+    atac_in = samples.map { meta, frag, tbi, rna -> [meta, frag, tbi] }
+    rna_in  = samples.map { meta, frag, tbi, rna -> [meta, rna] }
 
-    // 2. Group all TSSe text files by study and calculate the global cohort threshold
-    study_grouped_txt = stage1_out.tsse_txt
-        .map { file -> 
-            def study = file.name.tokenize('_')[0]
-            tuple(study, file) 
-        }.groupTuple()
-        
-    global_qc = ATAC_STAGE2_GLOBAL_THRESHOLD(study_grouped_txt)
+    // ---- ATAC branch ------------------------------------------------------
+    ATAC_IMPORT(atac_in)
+    ATAC_TSSE_THRESHOLD(ATAC_IMPORT.out.qc.collect())
+    ATAC_EMBED(ATAC_IMPORT.out.h5ad.collect(), ATAC_TSSE_THRESHOLD.out.thresholds)
 
-    // Ingest the computed cutoff string as a dynamic pipeline variable
-    threshold_value_ch = global_qc.thresh_val.map { it.text.trim() }
+    // ---- RNA branch -------------------------------------------------------
+    RNA_IMPORT(rna_in)
+    RNA_QC_EMBED(RNA_IMPORT.out.h5ad.collect())
 
-    // 3. Re-combine original raw h5ads with the global threshold for parallel filtering & feature processing
-    // We mix the sample channel with the threshold value channel
-    stage3_input = stage1_out.h5ad.combine(threshold_value_ch)
+    // ---- WNN + annotation + plots ----------------------------------------
+    WNN_INTEGRATE(RNA_QC_EMBED.out.rna, ATAC_EMBED.out.atac)
     
-    // Unpack fields for process: tuple(study, sample, raw_h5ad), global_thresh
-    processed_samples = ATAC_STAGE3_PROCESS(
-        stage3_input.map { study, sample, h5ad, thresh -> tuple(study, sample, h5ad) },
-        stage3_input.map { study, sample, h5ad, thresh -> thresh }
-    )
 
-    // 4. Final step: Group clean samples back together by study and generate the integrated atlas
-    study_grouped_clean = processed_samples
-        .groupTuple() // groups by key (study) automatically
+    markers_ch = Channel.value(file(params.markers, checkIfExists: true))
+    ANNOTATE(WNN_INTEGRATE.out.mdata, markers_ch, ATAC_EMBED.out.gene_activity)
+    PLOTS(ANNOTATE.out.mdata, markers_ch, ATAC_EMBED.out.gene_activity)
+}
 
-    MERGE_AND_HARMONY_ATAC(study_grouped_clean)
+workflow.onComplete {
+    log.info (workflow.success
+        ? "\n✅  Done. Results in ${params.outdir}\n"
+        : "\n❌  Failed after ${workflow.duration}\n")
 }

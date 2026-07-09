@@ -1,0 +1,4 @@
+study,sample,atac_fragments,rna_h5
+efremova,CRC01,/data/multiome/efremova/atac/efremova_CRC01_fragments.tsv.gz,/data/multiome/efremova/rna/efremova_CRC01_rna.h5
+efremova,CRC02,/data/multiome/efremova/atac/efremova_CRC02_fragments.tsv.gz,/data/multiome/efremova/rna/efremova_CRC02_rna.h5
+efremova,CRC03,/data/multiome/efremova/atac/efremova_CRC03_fragments.tsv.gz,/data/multiome/efremova/rna/efremova_CRC03_rna.h5
