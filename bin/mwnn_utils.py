@@ -47,6 +47,66 @@ def _json_default(o):
 
 
 # --------------------------------------------------------------------------- #
+# raw-counts guard
+# --------------------------------------------------------------------------- #
+def assert_raw_counts(adata, source_name, check_marker=True):
+    """Guard against double-normalizing input that isn't raw counts.
+
+    normalize_total/log1p run unconditionally downstream (rna_qc_embed.py),
+    with no way to tell after the fact whether they're being applied to raw
+    counts or to already-normalized/scaled data someone pointed the
+    samplesheet at by mistake (external .h5ad releases vary in what state
+    they ship in -- see the Hickey secondary_analysis.h5ad case, whose X was
+    already z-scored down to -3.07).
+
+    Negative values are an unambiguous tell (raw counts are never negative)
+    and are a hard failure. Missing the emmulti_raw marker -- stamped by
+    rna_import.py / rna_import_hickey.py on the way in -- is only a warning,
+    since legitimately-raw data can arrive without having gone through them.
+    ``check_marker=False`` at import time, before the marker has been set.
+    """
+    xmin = adata.X.min()
+    if xmin < 0:
+        raise SystemExit(
+            f"{source_name}: X has negative values (min={xmin:.3g}) -- looks "
+            f"already scaled/z-scored, not raw counts. Refusing to "
+            f"normalize_total/log1p on top of it."
+        )
+    if check_marker and not adata.uns.get("emmulti_raw", False):
+        log(f"WARNING {source_name}: no 'emmulti_raw' marker in .uns -- this "
+            f"file didn't come through rna_import.py/rna_import_hickey.py, "
+            f"so raw-counts status can't be confirmed. Proceeding.")
+
+
+# --------------------------------------------------------------------------- #
+# 10x Multiome ATAC<->GEX barcode translation
+# --------------------------------------------------------------------------- #
+_COMPLEMENT = str.maketrans("ACGTN", "TGCAN")
+
+
+def revcomp(seq):
+    return seq.translate(_COMPLEMENT)[::-1]
+
+
+def load_atac_gex_translation(path):
+    """Load the 10x ARC-v1 ATAC->GEX barcode translation table.
+
+    ``path`` is a gzipped two-column TSV (ATAC barcode, GEX barcode), built
+    by pairing the two whitelists positionally -- see assets/arc_whitelists/.
+    Fragments files store the ATAC barcode reverse-complemented relative to
+    the whitelist (a real, observed quirk, not universal 10x behaviour), so
+    callers must revcomp before looking up here.
+    """
+    import gzip
+    table = {}
+    with gzip.open(path, "rt") as fh:
+        for line in fh:
+            atac_bc, gex_bc = line.rstrip("\n").split("\t")
+            table[atac_bc] = gex_bc
+    return table
+
+
+# --------------------------------------------------------------------------- #
 # harmony
 # --------------------------------------------------------------------------- #
 def harmony_embedding(X, meta_df, vars_use, n_cells=None, max_iter=20, seed=0, **kw):

@@ -40,7 +40,7 @@ celltypes:
   # ---------------------------------------------------------------------
   epithelial:
     rna: [EPCAM, TACSTD2, KRT8, KRT18, KRT19, KRT20, CDH1, ELF3, CLDN4, CEACAM5, CEACAM6, CEACAM7, LAMC2, ITGA3, CD44, ASCL2]
-    atac_genes: [EPCAM]
+    # atac_genes: [EPCAM]
     
       # EPCAM, KRT8, KRT18, KRT19, KRT20, CDH1, ELF3,
       #     LGR5, OLFM4, ASCL2, SMOC2, RNF43, MKI67, TOP2A, RRM2, HELLS,
@@ -75,11 +75,11 @@ celltypes:
 
   immune:
     rna: [CD3D, CD3E, TRAC, NKG7, GNLY, MS4A1, CD79A, LYZ, FCGR3A, HLA-DRA, C1QA]
-    atac_genes: [CD3D, CD3E, MS4A1, LYZ, SPI1, CD68]
+    # atac_genes: [CD3D, CD3E, MS4A1, LYZ, SPI1, CD68]
 
   fibroblast:
     rna: [COL1A1, COL1A2, COL3A1, DCN ,LUM ,PDGFRA, FAP, THY1]
-    atac_genes: [COL1A1, PDGFRA, DCN, RGS5]
+    # atac_genes: [COL1A1, PDGFRA, DCN, RGS5]
 
   endothelial:
     # kept separate rather than folded into `fibroblast` - forcing vasculature
@@ -87,7 +87,7 @@ celltypes:
     # cluster 4 and cluster 3 calls (both already show real cross-talk with
     # pericyte/stellate/endothelial neighbours even as distinct buckets)
     rna: [PECAM1, VWF, CDH5, CLDN5, FLT1, PLVAP]
-    atac_genes: [PECAM1, CDH5]
+    # atac_genes: [PECAM1, CDH5]
 
   liver_contamination:
     # Deliberately NOT a simple union of hepatocyte+cholangiocyte+kupffer+
@@ -97,7 +97,7 @@ celltypes:
     # fibroblast / endothelial above - including them here too would just
     # recreate the cluster-0-style near-tie for every liver-adjacent cluster.
     rna: [ALB,APOA1,APOA2,TTR,FGA,FGB,FGG,HNF4A,CYP3A4,MARCO,CLEC4F,CD5L,VSIG4]
-    atac_genes: [ALB, HNF4A, HNF1B, CLEC4F]
+    # atac_genes: [ALB, HNF4A, HNF1B, CLEC4F]
     # This bucket will still legitimately co-fire with `immune` for Kupffer
     #   cells and with `fibroblast` for hepatic stellate cells - that's not a
     #   marker problem, it's because those cells really do have dual identity

@@ -1,0 +1,142 @@
+nohup: ignoring input
+tput: symbol lookup error: tput: undefined symbol: _nc_tiparm
+tput: symbol lookup error: tput: undefined symbol: _nc_tiparm
+tput: symbol lookup error: tput: undefined symbol: _nc_tiparm
+tput: symbol lookup error: tput: undefined symbol: _nc_tiparm
+tput: symbol lookup error: tput: undefined symbol: _nc_tiparm
+Nextflow 26.04.6 is available - Please consider updating your version to it
+N E X T F L O W  ~  version 25.04.8
+Launching `main.nf` [berserk_lorenz] DSL2 - revision: 07d44c3d17
+[b5/d252b1] Cached process > ATAC_IMPORT (hickey_B006-A-201)
+[9c/9ee971] Cached process > ATAC_IMPORT (hickey_B006-A-001)
+[ba/bd20d2] Cached process > ATAC_IMPORT (hickey_B006-A-002)
+[fc/22074b] Cached process > ATAC_IMPORT (hickey_B006-A-101)
+[c4/fb5fc9] Cached process > ATAC_IMPORT (hickey_B006-A-201-R2)
+[3d/b84d7f] Cached process > ATAC_IMPORT (hickey_B008-A-101)
+[48/e0ad7a] Cached process > ATAC_IMPORT (hickey_B008-A-001)
+[98/6223ce] Cached process > ATAC_IMPORT (hickey_B008-A-002)
+[e6/55c3a5] Cached process > ATAC_IMPORT (hickey_B008-A-201)
+[41/43c398] Cached process > ATAC_IMPORT (hickey_B009-A-101)
+[7a/47e2b5] Cached process > ATAC_IMPORT (hickey_B010-A-001)
+[c7/d7442b] Cached process > ATAC_IMPORT (hickey_B010-A-002)
+[ce/d8785b] Cached process > ATAC_IMPORT (hickey_B010-A-201)
+[8d/343813] Cached process > ATAC_IMPORT (hickey_B010-A-101)
+[c6/0989ec] Cached process > ATAC_IMPORT (hickey_B011-A-001)
+[16/13f658] Cached process > ATAC_IMPORT (hickey_B011-A-002)
+[ed/ce487c] Cached process > ATAC_IMPORT (hickey_B011-A-101)
+[0a/90247d] Cached process > ATAC_IMPORT (hickey_B012-A-001)
+[02/95330b] Cached process > ATAC_IMPORT (hickey_B012-A-002)
+[46/8e721b] Cached process > ATAC_IMPORT (hickey_B011-A-201)
+[b8/f33063] Cached process > ATAC_IMPORT (hickey_B012-A-101)
+[b7/4d6096] Cached process > ATAC_IMPORT (hickey_B012-A-201)
+[8c/cfd058] Submitted process > RNA_IMPORT (hickey_B006-A-001)
+[94/58034f] Submitted process > RNA_IMPORT (hickey_B006-A-002)
+[04/84bc2a] Submitted process > RNA_IMPORT (hickey_B006-A-201)
+[69/69a699] Submitted process > RNA_IMPORT (hickey_B006-A-101)
+[29/aae8df] Submitted process > RNA_IMPORT (hickey_B008-A-001)
+[9a/aa1b4a] Submitted process > RNA_IMPORT (hickey_B008-A-101)
+[4a/a8497d] Submitted process > RNA_IMPORT (hickey_B008-A-201)
+[d9/c939b4] Submitted process > RNA_IMPORT (hickey_B008-A-002)
+[22/e71801] Submitted process > RNA_IMPORT (hickey_B009-A-101)
+[8c/d8cb35] Submitted process > RNA_IMPORT (hickey_B010-A-002)
+[53/bf9d5c] Submitted process > RNA_IMPORT (hickey_B010-A-001)
+[0e/510182] Submitted process > RNA_IMPORT (hickey_B006-A-201-R2)
+[34/e5a7cd] Submitted process > RNA_IMPORT (hickey_B010-A-101)
+[8a/d6b72a] Submitted process > RNA_IMPORT (hickey_B010-A-201)
+[98/708e1b] Submitted process > RNA_IMPORT (hickey_B011-A-001)
+[16/7dfbe2] Submitted process > RNA_IMPORT (hickey_B011-A-002)
+[4b/78e81d] Submitted process > RNA_IMPORT (hickey_B012-A-001)
+[e8/fcba7b] Submitted process > RNA_IMPORT (hickey_B012-A-101)
+[3f/7eb48b] Submitted process > RNA_IMPORT (hickey_B012-A-002)
+[78/1b44b4] Submitted process > RNA_IMPORT (hickey_B011-A-201)
+[7d/bdeb64] Submitted process > RNA_IMPORT (hickey_B011-A-101)
+[9c/c2834f] Submitted process > RNA_IMPORT (hickey_B012-A-201)
+[c4/817058] Submitted process > ATAC_TSSE_THRESHOLD
+[35/f29438] Submitted process > ATAC_EMBED
+[9f/de9e57] Submitted process > RNA_QC_EMBED
+[ee/1173f3] Submitted process > WNN_INTEGRATE_HARMONY (harmony)
+[23/cf0244] Submitted process > WNN_INTEGRATE_RAW (raw)
+[b2/dba9af] Submitted process > ANNOTATE_HARMONY (harmony)
+[f5/71a3a1] Submitted process > ANNOTATE_RAW (raw)
+ERROR ~ Error executing process > 'ANNOTATE_HARMONY (harmony)'
+
+Caused by:
+  Process `ANNOTATE_HARMONY (harmony)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  annotate.py \
+      --mdata mdata_wnn.h5mu \
+      --markers markers.yaml \
+      --gene_activity gene_activity.h5ad \
+      --resolutions 0.1,0.2,0.5 \
+      --primary_resolution 0.2 \
+      --outdir . \
+      --out mdata_annotated.h5mu
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  /lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/muon/_core/preproc.py:31: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('scanpy')` instead
+    if Version(scanpy.__version__) < Version("1.10"):
+  /lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/mudata/_core/mudata.py:1403: FutureWarning: From 0.4 .update() will not pull obs/var columns from individual modalities by default anymore. Set mudata.set_options(pull_on_update=False) to adopt the new behaviour, which will become the default. Use new pull_obs/pull_var and push_obs/push_var methods for more flexibility.
+    self._update_attr("var", axis=0, join_common=join_common)
+  /lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/mudata/_core/mudata.py:1275: FutureWarning: From 0.4 .update() will not pull obs/var columns from individual modalities by default anymore. Set mudata.set_options(pull_on_update=False) to adopt the new behaviour, which will become the default. Use new pull_obs/pull_var and push_obs/push_var methods for more flexibility.
+    self._update_attr("obs", axis=1, join_common=join_common)
+  /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/annotate.py:97: FutureWarning: In the future, the default backend for leiden will be igraph instead of leidenalg.
+  
+   To achieve the future defaults please pass: flavor="igraph" and n_iterations=2.  directed must also be False to work with igraph's implementation.
+    sc.tl.leiden(mdata, neighbors_key="neighbors", resolution=r,
+  /lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/scanpy/tools/_score_genes.py:50: RuntimeWarning: invalid value encountered in divide
+    m = s / n_elements
+  Traceback (most recent call last):
+    File "/vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/annotate.py", line 151, in <module>
+      main()
+    File "/vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/annotate.py", line 124, in main
+      atac_scores = score_sets(ga, celltypes, key="atac_genes")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/annotate.py", line 43, in score_sets
+      sc.tl.score_genes(adata, genes, score_name=col, use_raw=False)
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/legacy_api_wrap/__init__.py", line 88, in fn_compatible
+      return fn(*args_all, **kw)
+             ^^^^^^^^^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/scanpy/tools/_score_genes.py", line 143, in score_genes
+      for r_genes in _score_genes_bins(
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/scanpy/tools/_score_genes.py", line 240, in _score_genes_bins
+      for cut in np.unique(obs_cut.loc[gene_list]):
+                           ~~~~~~~~~~~^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexing.py", line 1192, in __getitem__
+      return self._getitem_axis(maybe_callable, axis=axis)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexing.py", line 1421, in _getitem_axis
+      return self._getitem_iterable(key, axis=axis)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexing.py", line 1361, in _getitem_iterable
+      keyarr, indexer = self._get_listlike_indexer(key, axis)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexing.py", line 1559, in _get_listlike_indexer
+      keyarr, indexer = ax._get_indexer_strict(key, axis_name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+      self._raise_if_missing(keyarr, indexer, axis_name)
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26/lib/python3.11/site-packages/pandas/core/indexes/base.py", line 6261, in _raise_if_missing
+      raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+  KeyError: "None of [Index(['EPCAM'], dtype='object')] are in the [index]"
+
+Work dir:
+  /lustre1/scratch/359/vsc35918/nextflow-work/b2/dba9afc2b62d5c50bea7d670b61cfb
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+ -- Check '.nextflow.log' file for details
+Execution cancelled -- Finishing pending tasks before exit
+
+❌  Failed after 23m 56s
+
+WARN: Failed to render execution report -- see the log file for details
+WARN: Failed to render execution timeline -- see the log file for details

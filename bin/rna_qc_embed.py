@@ -57,8 +57,12 @@ def main():
     if not files:
         raise SystemExit(f"no RNA h5ads matched {args.h5ad_glob}")
 
-    adata = ad.concat([sc.read_h5ad(f) for f in files],
-                      join="outer", merge="first", index_unique=None)
+    loaded = []
+    for f in files:
+        a = sc.read_h5ad(f)
+        U.assert_raw_counts(a, f)
+        loaded.append(a)
+    adata = ad.concat(loaded, join="outer", merge="first", index_unique=None)
     adata.obs_names_make_unique()
     U.log(f"concatenated {adata.n_obs} cells x {adata.n_vars} genes "
           f"from {len(files)} samples")

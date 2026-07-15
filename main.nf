@@ -3,7 +3,12 @@ nextflow.enable.dsl = 2
 
 include { ATAC_IMPORT; ATAC_TSSE_THRESHOLD; ATAC_EMBED } from './modules/atac.nf'
 include { RNA_IMPORT; RNA_QC_EMBED }                     from './modules/rna.nf'
-include { WNN_INTEGRATE; ANNOTATE; PLOTS }               from './modules/wnn.nf'
+include { WNN_INTEGRATE as WNN_INTEGRATE_HARMONY
+          WNN_INTEGRATE as WNN_INTEGRATE_RAW
+          ANNOTATE      as ANNOTATE_HARMONY
+          ANNOTATE      as ANNOTATE_RAW
+          PLOTS         as PLOTS_HARMONY
+          PLOTS         as PLOTS_RAW }                   from './modules/wnn.nf'
 
 def helpMessage() {
     log.info """
@@ -22,6 +27,10 @@ def helpMessage() {
       --tsse_mode            per_sample | global   (auto TSSe dip)
       --markers              marker YAML (default assets/markers.yaml)
       --primary_resolution   leiden resolution used for annotation
+      --barcode_translation  auto | force | skip -- per-sample 10x Multiome
+                              ATAC->GEX barcode translation when direct
+                              matching is poor (auto also flags samples with
+                              no true multiome pairing; see nextflow.config)
     """.stripIndent()
 }
 
@@ -54,13 +63,33 @@ workflow {
     RNA_IMPORT(rna_in)
     RNA_QC_EMBED(RNA_IMPORT.out.h5ad.collect())
 
-    // ---- WNN + annotation + plots ----------------------------------------
-    WNN_INTEGRATE(RNA_QC_EMBED.out.rna, ATAC_EMBED.out.atac)
-    
-
+    // ---- WNN + annotation + plots ------------------------------------------
+    // Run the Harmony-corrected branch and, in parallel, an uncorrected
+    // ("raw") branch on the same RNA/ATAC embeddings so batch-correction
+    // effects can be compared side by side. Each process is aliased per
+    // variant on import (DSL2 forbids invoking the same process twice in one
+    // workflow), so the two branches run as independent process instances.
     markers_ch = Channel.value(file(params.markers, checkIfExists: true))
-    ANNOTATE(WNN_INTEGRATE.out.mdata, markers_ch, ATAC_EMBED.out.gene_activity)
-    PLOTS(ANNOTATE.out.mdata, markers_ch, ATAC_EMBED.out.gene_activity)
+    atac_to_gex_translation_ch = Channel.value(
+        file(params.atac_to_gex_translation, checkIfExists: true))
+
+    WNN_INTEGRATE_HARMONY(RNA_QC_EMBED.out.rna, ATAC_EMBED.out.atac,
+                           'harmony', params.rna_rep, params.atac_rep,
+                           atac_to_gex_translation_ch)
+    ANNOTATE_HARMONY(WNN_INTEGRATE_HARMONY.out.mdata, markers_ch,
+                      ATAC_EMBED.out.gene_activity, 'harmony')
+    PLOTS_HARMONY(ANNOTATE_HARMONY.out.mdata, markers_ch,
+                   ATAC_EMBED.out.gene_activity, 'harmony')
+
+    if (params.compare_batch_correction) {
+        WNN_INTEGRATE_RAW(RNA_QC_EMBED.out.rna, ATAC_EMBED.out.atac,
+                           'raw', params.rna_rep_raw, params.atac_rep_raw,
+                           atac_to_gex_translation_ch)
+        ANNOTATE_RAW(WNN_INTEGRATE_RAW.out.mdata, markers_ch,
+                      ATAC_EMBED.out.gene_activity, 'raw')
+        PLOTS_RAW(ANNOTATE_RAW.out.mdata, markers_ch,
+                   ATAC_EMBED.out.gene_activity, 'raw')
+    }
 }
 
 workflow.onComplete {
