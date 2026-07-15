@@ -107,6 +107,34 @@ def load_atac_gex_translation(path):
 
 
 # --------------------------------------------------------------------------- #
+# GTF gene annotation
+# --------------------------------------------------------------------------- #
+def load_gtf_gene_map(gtf_path):
+    """Parse a GENCODE/Ensembl GTF into {bare ENSG id: gene symbol}.
+
+    Version suffixes (the ".15" in ENSG00000000003.15) are stripped from the
+    key, since var_names / var['ensembl_id'] across the pipeline's inputs are
+    inconsistent about carrying them.
+    """
+    import re
+
+    gene_map = {}
+    with open(gtf_path) as f:
+        for line in f:
+            if line.startswith("#"):
+                continue
+            fields = line.rstrip("\n").split("\t")
+            if len(fields) < 9 or fields[2] != "gene":
+                continue
+            attrs = fields[8]
+            gid = re.search(r'gene_id "([^"]+)"', attrs)
+            gname = re.search(r'gene_name "([^"]+)"', attrs)
+            if gid and gname:
+                gene_map[gid.group(1).split(".")[0]] = gname.group(1)
+    return gene_map
+
+
+# --------------------------------------------------------------------------- #
 # harmony
 # --------------------------------------------------------------------------- #
 def harmony_embedding(X, meta_df, vars_use, n_cells=None, max_iter=20, seed=0, **kw):

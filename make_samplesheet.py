@@ -16,13 +16,21 @@ from pathlib import Path
 
 
 ATAC_SUFFIX = "_fragments.tsv.gz"
-RNA_SUFFIX = "_rna.h5"
+# Most studies ship plain CellRanger .h5; external releases (e.g. Hickey)
+# ship AnnData .h5ad instead -- rna_import.py already reads either
+# transparently (it peeks the file rather than trusting the extension), so
+# the samplesheet builder needs to recognize both too.
+RNA_SUFFIXES = ("_rna.h5ad", "_rna.h5")
 
 
 def sample_from(name, suffix, study):
     stem = name[: -len(suffix)]              # efremova_CRC01
     prefix = f"{study}_"
     return stem[len(prefix):] if stem.startswith(prefix) else stem
+
+
+def rna_suffix_for(name):
+    return next((s for s in RNA_SUFFIXES if name.endswith(s)), None)
 
 
 def main():
@@ -43,8 +51,9 @@ def main():
 
     atac = {sample_from(f.name, ATAC_SUFFIX, study): f
             for f in atac_dir.glob(f"*{ATAC_SUFFIX}")}
-    rna = {sample_from(f.name, RNA_SUFFIX, study): f
-           for f in rna_dir.glob(f"*{RNA_SUFFIX}")}
+    rna = {sample_from(f.name, rna_suffix_for(f.name), study): f
+           for f in rna_dir.glob("*_rna.h5*")
+           if rna_suffix_for(f.name)}
 
     paired = sorted(set(atac) & set(rna))
     atac_only = sorted(set(atac) - set(rna))

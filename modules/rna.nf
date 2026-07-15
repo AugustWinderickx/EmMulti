@@ -5,6 +5,7 @@ process RNA_IMPORT {
 
     input:
     tuple val(meta), path(rna_h5)
+    path gtf
 
     output:
     path "${meta.id}.rna.h5ad", emit: h5ad
@@ -16,6 +17,7 @@ process RNA_IMPORT {
         --h5 ${rna_h5} \\
         --sample_id ${meta.id} \\
         ${strip} \\
+        --gtf ${gtf} \\
         --out ${meta.id}.rna.h5ad
     """
 }

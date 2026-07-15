@@ -1,61 +1,7 @@
-Jul-14 10:50:38.877 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet /lustre1/project/stg_00064/awinderickx/data/crc_reverse/healthy/hickey/samplesheet_smallI_hickey.csv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/hickey_smallI_EM --genome hg38 --species human --tsse_mode global --barcode_translation auto -resume
-Jul-14 10:50:39.033 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
-Jul-14 10:50:39.058 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
-Jul-14 10:50:39.105 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-14 10:50:39.106 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-14 10:50:39.109 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-14 10:50:39.123 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-14 10:50:39.145 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
-Jul-14 10:50:39.148 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
-Jul-14 10:50:39.214 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
-Jul-14 10:50:39.218 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@76b224cd] - activable => nextflow.secret.LocalSecretsProvider@76b224cd
-Jul-14 10:50:39.231 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
-Jul-14 10:50:40.062 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
-Jul-14 10:50:40.105 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-14 10:50:40.128 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [berserk_gates] DSL2 - revision: 07d44c3d17
-Jul-14 10:50:40.129 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-14 10:50:40.129 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jul-14 10:50:40.197 [main] DEBUG nextflow.Session - Session UUID: ebf1075d-e9f0-4638-8f7e-f97046ca90d0
-Jul-14 10:50:40.198 [main] DEBUG nextflow.Session - Run name: berserk_gates
-Jul-14 10:50:40.198 [main] DEBUG nextflow.Session - Executor pool size: 4
-Jul-14 10:50:40.209 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-14 10:50:40.216 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-14 10:50:40.255 [main] DEBUG nextflow.cli.CmdRun - 
-  Version: 25.04.8 build 5956
-  Created: 06-10-2025 21:19 UTC (23:19 CEST)
-  System: Linux 5.14.0-687.17.1.20260609.el9.x86_64
-  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2+7
-  Encoding: UTF-8 (UTF-8)
-  Process: 4022414@g28l17 [10.118.228.78]
-  CPUs: 4 - Mem: 2 TB (1.4 TB) - Swap: 2 GB (1.9 GB)
-Jul-14 10:50:40.302 [main] DEBUG nextflow.Session - Work-dir: /lustre1/scratch/359/vsc35918/nextflow-work [lustre]
-Jul-14 10:50:40.337 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-14 10:50:40.350 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-14 10:50:40.375 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Jul-14 10:50:40.401 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-14 10:50:40.413 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
-Jul-14 10:50:40.430 [main] ERROR nextflow.cli.Launcher - Unable to acquire lock on session with ID ebf1075d-e9f0-4638-8f7e-f97046ca90d0
-
-Common reasons for this error are:
- - You are trying to resume the execution of an already running pipeline
- - A previous execution was abruptly interrupted, leaving the session open
-
-You can see which process is holding the lock file by using the following command:
- - lsof /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/.nextflow/cache/ebf1075d-e9f0-4638-8f7e-f97046ca90d0/db/LOCK
-java.io.IOException: Unable to acquire lock on session with ID ebf1075d-e9f0-4638-8f7e-f97046ca90d0
-
-Common reasons for this error are:
- - You are trying to resume the execution of an already running pipeline
- - A previous execution was abruptly interrupted, leaving the session open
-
-You can see which process is holding the lock file by using the following command:
- - lsof /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/.nextflow/cache/ebf1075d-e9f0-4638-8f7e-f97046ca90d0/db/LOCK
-	at nextflow.cache.DefaultCacheStore.openDb(DefaultCacheStore.groovy:91)
-	at nextflow.cache.DefaultCacheStore.open(DefaultCacheStore.groovy:106)
-	at nextflow.cache.DefaultCacheStore.open(DefaultCacheStore.groovy)
-	at nextflow.cache.CacheDB.open(CacheDB.groovy:59)
-	at nextflow.Session.init(Session.groovy:451)
-	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:130)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+Jul-15 17:14:53.447 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet samplesheet_stunnenberg_N.csv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/stunnenberg_normal/ --genome hg38 --species human --tsse_mode global --barcode_translation skip --gtf /user/leuven/359/vsc35918/lcb/awinderickx/genomes/gencode.v47.annotation.gtf --markers assets/healthy_colon_markers.yaml -name stunnenberg_N
+Jul-15 17:14:53.566 [main] DEBUG nextflow.cli.Launcher - Operation aborted
+nextflow.exception.AbortOperationException: Run name `stunnenberg_N` has been already used -- Specify a different one
+	at nextflow.cli.CmdRun.checkRunName(CmdRun.groovy:515)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:320)
 	at nextflow.cli.Launcher.run(Launcher.groovy:513)
 	at nextflow.cli.Launcher.main(Launcher.groovy:673)

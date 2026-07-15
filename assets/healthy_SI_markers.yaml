@@ -1,0 +1,73 @@
+params:
+  margin: 0.15
+  min_score: 0.0
+
+celltypes:
+  stem:
+    rna: [LGR5, ASCL2, OLFM4, SMOC2, RNF43, AXIN2, SOX9]
+
+  ta:
+    rna: [MKI67, TOP2A, PCNA, RRM2, HELLS]
+
+  enterocyte:
+    rna: [FABP1, FABP2, APOA1, APOA4, APOB, RBP2, ANPEP, SLC5A1, ALPI, MTTP, SI]
+
+  goblet:
+    rna: [MUC2, TFF3, ZG16, FCGBP, CLCA1, SPINK4, AGR2, REG4]
+
+  paneth:
+    rna: [LYZ, DEFA5, DEFA6, PLA2G2A, REG3A, REG3G, ITLN2]
+
+  eec:
+    rna: [CHGA, CHGB, NEUROD1, PYY, GCG, GIP, CCK, SCT, MLN, INSL5, NEUROG3]
+
+  tuft:
+    rna: [POU2F3, DCLK1, TRPM5, AVIL, GNAT3, SH2D6]
+
+  best4:
+    rna: [BEST4, OTOP2, CA7, SPIB, CFTR]
+
+  m_cell:
+    rna: [GP2, SPIB, CCL20]
+
+  t_cell:
+    rna: [CD3D, CD3E, TRAC, CD4, IL7R, CD8A, CD8B, GZMK, FOXP3, IL2RA, CTLA4]
+
+  ieL:
+    rna: [CD3D, CD8A, ITGAE, KLRB1, GZMB, NKG7]
+
+  nk_ilc:
+    rna: [NKG7, GNLY, KLRD1, NCAM1, EOMES, IL7R]
+
+  b_cell:
+    rna: [MS4A1, CD79A, CD79B, CD19, BANK1]
+
+  plasma_cell:
+    rna: [JCHAIN, MZB1, IGHA1, XBP1, SDC1, PRDM1]
+
+  macrophage:
+    rna: [CD68, C1QA, C1QB, CD163, MRC1, AIF1]
+
+  monocyte:
+    rna: [FCN1, S100A8, S100A9, VCAN, CD14]
+
+  dendritic_cell:
+    rna: [CD1C, CLEC9A, LAMP3, FCER1A]
+
+  mast_cell:
+    rna: [TPSAB1, TPSB2, CPA3, KIT, MS4A2]
+
+  fibroblast:
+    rna: [COL1A1, COL1A2, COL3A1, DCN, LUM, PDGFRA, THY1]
+
+  endothelial:
+    rna: [PECAM1, VWF, CDH5, CLDN5, FLT1, PLVAP]
+
+  lymphatic_endothelial:
+    rna: [PROX1, LYVE1, PDPN, CCL21, FLT4]
+
+  smooth_muscle:
+    rna: [ACTA2, MYH11, DES, TAGLN, CNN1, KIT, ANO1]
+
+  neural:
+    rna: [PLP1, S100B, SOX10, ELAVL4, RET, PHOX2B, TUBB3]

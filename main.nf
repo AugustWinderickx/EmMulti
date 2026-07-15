@@ -24,6 +24,9 @@ def helpMessage() {
       --outdir               results directory
       --genome               hg38 | mm10
       --species              human | mouse
+      --gtf                  GENCODE/Ensembl GTF used to fill in gene
+                              symbols for RNA inputs that carry Ensembl IDs
+                              as var_names instead of symbols
       --tsse_mode            per_sample | global   (auto TSSe dip)
       --markers              marker YAML (default assets/markers.yaml)
       --primary_resolution   leiden resolution used for annotation
@@ -60,7 +63,8 @@ workflow {
     ATAC_EMBED(ATAC_IMPORT.out.h5ad.collect(), ATAC_TSSE_THRESHOLD.out.thresholds)
 
     // ---- RNA branch -------------------------------------------------------
-    RNA_IMPORT(rna_in)
+    gtf_ch = Channel.value(file(params.gtf, checkIfExists: true))
+    RNA_IMPORT(rna_in, gtf_ch)
     RNA_QC_EMBED(RNA_IMPORT.out.h5ad.collect())
 
     // ---- WNN + annotation + plots ------------------------------------------
