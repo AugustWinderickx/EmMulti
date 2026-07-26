@@ -62,8 +62,14 @@ def compute_thresholds(df, args):
 
     tbl = pd.DataFrame(rows)
     # Applied threshold depends on mode. In per_sample mode, fall back to the
-    # global dip for any sample where auto-detection failed.
-    if args.mode == "global":
+    # global dip for any sample where auto-detection failed. In manual mode,
+    # the user-supplied value overrides everywhere (auto-detection above is
+    # still run and kept in the table for reference/diagnostics only).
+    if args.mode == "manual":
+        if args.manual_threshold is None:
+            raise SystemExit("--manual_threshold is required when --mode manual")
+        tbl["applied_threshold"] = args.manual_threshold
+    elif args.mode == "global":
         tbl["applied_threshold"] = glob_r["threshold"]
     else:
         tbl["applied_threshold"] = np.where(
@@ -72,14 +78,11 @@ def compute_thresholds(df, args):
     return tbl, per_sample_kde, glob_r
 
 
-def plot_pooled_hist(df, glob_r, path):
+def plot_pooled_hist(df, threshold, label, path):
     fig, ax = plt.subplots(figsize=(8, 5))
     ax.hist(df["tsse"], bins=120, range=(0, 30),
             color="#7089b8", edgecolor="white", linewidth=0.2)
-    t = glob_r["threshold"]
-    ax.axvline(t, color="#d1495b", ls="--", lw=2,
-               label=f"global dip = {t:.2f}"
-                     + ("" if glob_r["detected"] else " (fallback)"))
+    ax.axvline(threshold, color="#d1495b", ls="--", lw=2, label=label)
     ax.set(xlabel="TSS enrichment", ylabel="cells",
            title="Pooled TSSe distribution")
     ax.legend(frameon=False)
@@ -151,7 +154,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--qc_glob", required=True)
     ap.add_argument("--mode", default="per_sample",
-                    choices=["per_sample", "global"])
+                    choices=["per_sample", "global", "manual"])
+    ap.add_argument("--manual_threshold", type=float, default=None,
+                    help="fixed TSSe threshold applied to every sample "
+                         "when --mode manual")
     ap.add_argument("--default_min_tsse", type=float, default=5.0)
     ap.add_argument("--min_high_peak", type=float, default=4.0)
     ap.add_argument("--search_lo", type=float, default=0.0)
@@ -169,7 +175,14 @@ def main():
     U.write_json({"mode": args.mode, "global": glob_r,
                   "params": vars(args)}, out / "tsse_threshold_meta.json")
 
-    plot_pooled_hist(df, glob_r, out / "tsse_pooled_hist.png")
+    if args.mode == "manual":
+        pooled_thr, pooled_label = args.manual_threshold, \
+            f"manual threshold = {args.manual_threshold:.2f}"
+    else:
+        pooled_thr = glob_r["threshold"]
+        pooled_label = (f"global dip = {pooled_thr:.2f}"
+                         + ("" if glob_r["detected"] else " (fallback)"))
+    plot_pooled_hist(df, pooled_thr, pooled_label, out / "tsse_pooled_hist.png")
     plot_sample_ridge(kde, out / "tsse_sample_ridge.png")
     plot_sample_boxplot(df, tbl, out / "tsse_sample_boxplot.png")
     plot_knee(df, tbl, out / "tsse_knee.png")

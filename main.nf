@@ -27,7 +27,10 @@ def helpMessage() {
       --gtf                  GENCODE/Ensembl GTF used to fill in gene
                               symbols for RNA inputs that carry Ensembl IDs
                               as var_names instead of symbols
-      --tsse_mode            per_sample | global   (auto TSSe dip)
+      --tsse_mode            per_sample | global | manual   (auto TSSe dip,
+                              or manual with --tsse_manual_threshold)
+      --rna_qc_mode          basic | strict   (strict adds MAD-based outlier
+                              + mito filtering, see nextflow.config)
       --markers              marker YAML (default assets/markers.yaml)
       --primary_resolution   leiden resolution used for annotation
       --barcode_translation  auto | force | skip -- per-sample 10x Multiome

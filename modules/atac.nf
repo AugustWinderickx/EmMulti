@@ -40,6 +40,8 @@ process ATAC_TSSE_THRESHOLD {
     path "tsse_threshold_meta.json"
 
     script:
+    def manualArg = params.tsse_mode == 'manual'
+        ? "--manual_threshold ${params.tsse_manual_threshold}" : ''
     """
     atac_tsse_threshold.py \\
         --qc_glob '*.qc.parquet' \\
@@ -48,6 +50,7 @@ process ATAC_TSSE_THRESHOLD {
         --min_high_peak ${params.tsse_min_high_peak} \\
         --clamp_lo ${params.tsse_clamp_lo} \\
         --clamp_hi ${params.tsse_clamp_hi} \\
+        ${manualArg} \\
         --outdir .
     """
 }

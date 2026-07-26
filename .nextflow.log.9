@@ -1,7 +1,331 @@
-Jul-16 12:01:11.921 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet /lustre1/project/stg_00064/awinderickx/data/crc_reverse/healthy/hickey/multiome_only/samplesheet_smallI_hickey.csv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/hickey_smallI_EM --genome hg38 --species human --tsse_mode global --barcode_translation auto -name hickey_smallI_v3 --gtf /user/leuven/359/vsc35918/lcb/awinderickx/genomes/gencode.v47.annotation.gtf --markers assets/healthy_SI_markers.yaml
-Jul-16 12:01:12.036 [main] DEBUG nextflow.cli.Launcher - Operation aborted
-nextflow.exception.AbortOperationException: Run name `hickey_smallI_v3` has been already used -- Specify a different one
-	at nextflow.cli.CmdRun.checkRunName(CmdRun.groovy:515)
-	at nextflow.cli.CmdRun.run(CmdRun.groovy:320)
-	at nextflow.cli.Launcher.run(Launcher.groovy:513)
-	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Jul-16 12:01:24.808 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet /lustre1/project/stg_00064/awinderickx/data/crc_reverse/healthy/hickey/multiome_only/samplesheet_smallI_hickey.csv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/hickey_smallI_EM --genome hg38 --species human --tsse_mode global --barcode_translation auto -name hickey_smallI_v4 --gtf /user/leuven/359/vsc35918/lcb/awinderickx/genomes/gencode.v47.annotation.gtf --markers assets/healthy_SI_markers.yaml
+Jul-16 12:01:24.914 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Jul-16 12:01:24.937 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Jul-16 12:01:24.968 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-16 12:01:24.969 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-16 12:01:24.972 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-16 12:01:24.984 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-16 12:01:25.004 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-16 12:01:25.007 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-16 12:01:25.051 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
+Jul-16 12:01:25.055 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3bcd426c] - activable => nextflow.secret.LocalSecretsProvider@3bcd426c
+Jul-16 12:01:25.070 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
+Jul-16 12:01:25.864 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
+Jul-16 12:01:25.897 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-16 12:01:25.914 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [hickey_smallI_v4] DSL2 - revision: 14b9d4a9e9
+Jul-16 12:01:25.915 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-16 12:01:25.915 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-16 12:01:25.974 [main] DEBUG nextflow.Session - Session UUID: 4e555bad-d614-4935-b18d-72156cfa6c05
+Jul-16 12:01:25.975 [main] DEBUG nextflow.Session - Run name: hickey_smallI_v4
+Jul-16 12:01:25.976 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jul-16 12:01:25.984 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-16 12:01:25.989 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-16 12:01:26.011 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.8 build 5956
+  Created: 06-10-2025 21:19 UTC (23:19 CEST)
+  System: Linux 5.14.0-687.17.1.20260609.el9.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2+7
+  Encoding: UTF-8 (UTF-8)
+  Process: 1387668@g28l17 [10.118.228.78]
+  CPUs: 4 - Mem: 2 TB (1.6 TB) - Swap: 2 GB (1.9 GB)
+Jul-16 12:01:26.119 [main] DEBUG nextflow.Session - Work-dir: /lustre1/scratch/359/vsc35918/nextflow-work [lustre]
+Jul-16 12:01:26.154 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-16 12:01:26.164 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-16 12:01:26.189 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-16 12:01:26.215 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-16 12:01:26.224 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jul-16 12:01:26.289 [main] DEBUG nextflow.Session - Session start
+Jul-16 12:01:26.293 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/hickey_smallI_EM/pipeline_info/trace.txt
+Jul-16 12:01:26.618 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-16 12:01:27.145 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ATAC_IMPORT
+Jul-16 12:01:27.154 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.155 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.165 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Jul-16 12:01:27.172 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 30; pollInterval: 5s; dumpInterval: 5m 
+Jul-16 12:01:27.174 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Jul-16 12:01:27.175 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 60 seconds
+Jul-16 12:01:27.178 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Jul-16 12:01:27.198 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_IMPORT': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.234 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name ATAC_TSSE_THRESHOLD
+Jul-16 12:01:27.236 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.236 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.237 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_TSSE_THRESHOLD': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.243 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name ATAC_EMBED
+Jul-16 12:01:27.245 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.245 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.246 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_EMBED': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.259 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name RNA_IMPORT
+Jul-16 12:01:27.261 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.261 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.262 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_IMPORT': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.268 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name RNA_QC_EMBED
+Jul-16 12:01:27.270 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.270 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.271 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_QC_EMBED': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.281 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_HARMONY
+Jul-16 12:01:27.283 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.284 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.284 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_HARMONY': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.292 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_HARMONY
+Jul-16 12:01:27.294 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.294 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.295 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_HARMONY': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.301 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_HARMONY
+Jul-16 12:01:27.303 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.303 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.304 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_HARMONY': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.311 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_RAW
+Jul-16 12:01:27.313 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.313 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.314 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_RAW': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.318 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_RAW
+Jul-16 12:01:27.321 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.321 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.322 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_RAW': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.326 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_RAW
+Jul-16 12:01:27.328 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-16 12:01:27.328 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-16 12:01:27.328 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_RAW': maxForks=0; fair=false; array=0
+Jul-16 12:01:27.331 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ANNOTATE, PLOTS_RAW, WNN_INTEGRATE, RNA_QC_EMBED, WNN_INTEGRATE_HARMONY, RNA_IMPORT, ATAC_IMPORT, ATAC_TSSE_THRESHOLD, WNN_INTEGRATE_RAW, PLOTS_HARMONY, PLOTS, ANNOTATE_RAW, ATAC_EMBED, ANNOTATE_HARMONY
+Jul-16 12:01:27.334 [main] DEBUG nextflow.Session - Igniting dataflow network (15)
+Jul-16 12:01:27.339 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_IMPORT
+Jul-16 12:01:27.340 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_TSSE_THRESHOLD
+Jul-16 12:01:27.340 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_EMBED
+Jul-16 12:01:27.341 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_IMPORT
+Jul-16 12:01:27.342 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_QC_EMBED
+Jul-16 12:01:27.342 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_HARMONY
+Jul-16 12:01:27.343 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_HARMONY
+Jul-16 12:01:27.344 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_HARMONY
+Jul-16 12:01:27.344 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_RAW
+Jul-16 12:01:27.344 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_RAW
+Jul-16 12:01:27.344 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_RAW
+Jul-16 12:01:27.345 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_47ce5e88485954f5: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/rna.nf
+  Script_9af17aaa4d2a514a: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/atac.nf
+  Script_f2cb09a0f62ee1bd: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/wnn.nf
+  Script_5e656363f6e2c496: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/main.nf
+Jul-16 12:01:27.345 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-16 12:01:27.345 [main] DEBUG nextflow.Session - Session await
+Jul-16 12:01:27.451 [Actor Thread 9] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25
+Jul-16 12:01:27.455 [Actor Thread 9] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26
+Jul-16 12:01:28.048 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B006-A-401) > jobId: 61472883; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e7/b76d2e97fe9a71b95cafa103b5e09e
+Jul-16 12:01:28.049 [Task submitter] INFO  nextflow.Session - [e7/b76d2e] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B006-A-401)
+Jul-16 12:01:33.467 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B006-A-402) > jobId: 61472929; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d2/9294f94dc1253af670ac8dbdebf2e2
+Jul-16 12:01:33.467 [Task submitter] INFO  nextflow.Session - [d2/9294f9] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B006-A-402)
+Jul-16 12:01:39.474 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B006-A-501) > jobId: 61472939; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/c5/2e3437a6e5fd72748542ef38608d4a
+Jul-16 12:01:39.474 [Task submitter] INFO  nextflow.Session - [c5/2e3437] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B006-A-501)
+Jul-16 12:01:45.467 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B006-A-402) > jobId: 61472985; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a8/d0da0ad5591949c1447153c3310dbf
+Jul-16 12:01:45.468 [Task submitter] INFO  nextflow.Session - [a8/d0da0a] Submitted process > RNA_IMPORT (hickey_SI_hickey_B006-A-402)
+Jul-16 12:01:51.469 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B006-A-301) > jobId: 61472995; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/43/7665e64b0bddfc11e28d37610e55ff
+Jul-16 12:01:51.469 [Task submitter] INFO  nextflow.Session - [43/7665e6] Submitted process > RNA_IMPORT (hickey_SI_hickey_B006-A-301)
+Jul-16 12:01:57.470 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B008-A-301) > jobId: 61472996; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7d/e01c98298ed66ed6d6c63c73a4e809
+Jul-16 12:01:57.471 [Task submitter] INFO  nextflow.Session - [7d/e01c98] Submitted process > RNA_IMPORT (hickey_SI_hickey_B008-A-301)
+Jul-16 12:02:03.483 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B006-A-401) > jobId: 61472997; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/80/9d350bc7d4cde008cf0305b12c6b1a
+Jul-16 12:02:03.483 [Task submitter] INFO  nextflow.Session - [80/9d350b] Submitted process > RNA_IMPORT (hickey_SI_hickey_B006-A-401)
+Jul-16 12:02:09.471 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B006-A-501) > jobId: 61472998; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/2a2d5cf663d12c84fcdc235939a6f8
+Jul-16 12:02:09.471 [Task submitter] INFO  nextflow.Session - [eb/2a2d5c] Submitted process > RNA_IMPORT (hickey_SI_hickey_B006-A-501)
+Jul-16 12:02:12.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472985; id: 3; name: RNA_IMPORT (hickey_SI_hickey_B006-A-402); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a8/d0da0ad5591949c1447153c3310dbf started: 1784196117181; exited: 2026-07-16T10:02:11Z; ]
+Jul-16 12:02:12.186 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-16 12:02:12.191 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472995; id: 1; name: RNA_IMPORT (hickey_SI_hickey_B006-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/43/7665e64b0bddfc11e28d37610e55ff started: 1784196122182; exited: 2026-07-16T10:02:11Z; ]
+Jul-16 12:02:12.193 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472996; id: 5; name: RNA_IMPORT (hickey_SI_hickey_B008-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7d/e01c98298ed66ed6d6c63c73a4e809 started: 1784196127182; exited: 2026-07-16T10:02:11Z; ]
+Jul-16 12:02:15.468 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B006-A-301) > jobId: 61472999; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ff/defce7d4ece837c097813c3c0629bf
+Jul-16 12:02:15.469 [Task submitter] INFO  nextflow.Session - [ff/defce7] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B006-A-301)
+Jul-16 12:02:21.472 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B008-A-301) > jobId: 61473000; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/8f/83fcd9703dac74f285fd7a9615494c
+Jul-16 12:02:21.472 [Task submitter] INFO  nextflow.Session - [8f/83fcd9] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B008-A-301)
+Jul-16 12:02:27.183 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472997; id: 2; name: RNA_IMPORT (hickey_SI_hickey_B006-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/80/9d350bc7d4cde008cf0305b12c6b1a started: 1784196132194; exited: 2026-07-16T10:02:25Z; ]
+Jul-16 12:02:27.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472998; id: 4; name: RNA_IMPORT (hickey_SI_hickey_B006-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/2a2d5cf663d12c84fcdc235939a6f8 started: 1784196137182; exited: 2026-07-16T10:02:25Z; ]
+Jul-16 12:02:27.482 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B008-A-402) > jobId: 61473001; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/6067e268b109c16d3737c5164ba068
+Jul-16 12:02:27.482 [Task submitter] INFO  nextflow.Session - [e5/6067e2] Submitted process > RNA_IMPORT (hickey_SI_hickey_B008-A-402)
+Jul-16 12:02:33.476 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B008-A-401) > jobId: 61473002; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b4/98896311a6cfe7c61f6077ea1ff1a6
+Jul-16 12:02:33.476 [Task submitter] INFO  nextflow.Session - [b4/988963] Submitted process > RNA_IMPORT (hickey_SI_hickey_B008-A-401)
+Jul-16 12:02:39.479 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B009-A-405) > jobId: 61473004; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ce/70dbb92f3a227b2298951d09da65f1
+Jul-16 12:02:39.479 [Task submitter] INFO  nextflow.Session - [ce/70dbb9] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B009-A-405)
+Jul-16 12:02:42.184 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473001; id: 15; name: RNA_IMPORT (hickey_SI_hickey_B008-A-402); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/6067e268b109c16d3737c5164ba068 started: 1784196157198; exited: 2026-07-16T10:02:38Z; ]
+Jul-16 12:02:45.465 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B008-A-501) > jobId: 61473006; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7c/7028d77923b00cc246450a00ebbe3f
+Jul-16 12:02:45.465 [Task submitter] INFO  nextflow.Session - [7c/7028d7] Submitted process > RNA_IMPORT (hickey_SI_hickey_B008-A-501)
+Jul-16 12:02:47.183 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473002; id: 14; name: RNA_IMPORT (hickey_SI_hickey_B008-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b4/98896311a6cfe7c61f6077ea1ff1a6 started: 1784196157199; exited: 2026-07-16T10:02:46Z; ]
+Jul-16 12:02:51.472 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B008-A-402) > jobId: 61473007; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/46d23261b73f0dc2a56ae79c2c191c
+Jul-16 12:02:51.472 [Task submitter] INFO  nextflow.Session - [bb/46d232] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B008-A-402)
+Jul-16 12:02:57.472 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B008-A-401) > jobId: 61473008; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/31/6ae7b21533f20ea6fb302c495e6113
+Jul-16 12:02:57.473 [Task submitter] INFO  nextflow.Session - [31/6ae7b2] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B008-A-401)
+Jul-16 12:03:03.868 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B008-A-501) > jobId: 61473009; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/40/8e1e9601524295c34b82172bbfce63
+Jul-16 12:03:03.868 [Task submitter] INFO  nextflow.Session - [40/8e1e96] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B008-A-501)
+Jul-16 12:03:07.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473006; id: 16; name: RNA_IMPORT (hickey_SI_hickey_B008-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7c/7028d77923b00cc246450a00ebbe3f started: 1784196172183; exited: 2026-07-16T10:03:02Z; ]
+Jul-16 12:03:09.466 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B010-A-401) > jobId: 61473011; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0c/f81247be1e4a162e67b68c34898d0f
+Jul-16 12:03:09.466 [Task submitter] INFO  nextflow.Session - [0c/f81247] Submitted process > RNA_IMPORT (hickey_SI_hickey_B010-A-401)
+Jul-16 12:03:15.464 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B009-A-405) > jobId: 61473013; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6c/c6457a4eaea6cab83b1c403369d800
+Jul-16 12:03:15.464 [Task submitter] INFO  nextflow.Session - [6c/c6457a] Submitted process > RNA_IMPORT (hickey_SI_hickey_B009-A-405)
+Jul-16 12:03:21.468 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B010-A-301) > jobId: 61473014; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cc/ffec01e60df83c3a6bdf10a6881a24
+Jul-16 12:03:21.469 [Task submitter] INFO  nextflow.Session - [cc/ffec01] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B010-A-301)
+Jul-16 12:03:22.186 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473011; id: 21; name: RNA_IMPORT (hickey_SI_hickey_B010-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0c/f81247be1e4a162e67b68c34898d0f started: 1784196197184; exited: 2026-07-16T10:03:20Z; ]
+Jul-16 12:03:27.465 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B010-A-301) > jobId: 61473015; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a4/5a7bc04d7f3f8c642f7623818ee34b
+Jul-16 12:03:27.465 [Task submitter] INFO  nextflow.Session - [a4/5a7bc0] Submitted process > RNA_IMPORT (hickey_SI_hickey_B010-A-301)
+Jul-16 12:03:33.466 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B011-A-301) > jobId: 61473017; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4d/f80a07f284534416bd15da128c4470
+Jul-16 12:03:33.466 [Task submitter] INFO  nextflow.Session - [4d/f80a07] Submitted process > RNA_IMPORT (hickey_SI_hickey_B011-A-301)
+Jul-16 12:03:37.202 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473013; id: 17; name: RNA_IMPORT (hickey_SI_hickey_B009-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6c/c6457a4eaea6cab83b1c403369d800 started: 1784196202187; exited: 2026-07-16T10:03:32Z; ]
+Jul-16 12:03:39.483 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B010-A-401) > jobId: 61473019; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7e/11f869c0aff8e5e01940b9c87c5f80
+Jul-16 12:03:39.483 [Task submitter] INFO  nextflow.Session - [7e/11f869] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B010-A-401)
+Jul-16 12:03:42.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473015; id: 19; name: RNA_IMPORT (hickey_SI_hickey_B010-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a4/5a7bc04d7f3f8c642f7623818ee34b started: 1784196217203; exited: 2026-07-16T10:03:38Z; ]
+Jul-16 12:03:45.459 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B010-A-405) > jobId: 61473020; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2a/0297a6a267c2bb3ac8bd223ce53412
+Jul-16 12:03:45.459 [Task submitter] INFO  nextflow.Session - [2a/0297a6] Submitted process > RNA_IMPORT (hickey_SI_hickey_B010-A-405)
+Jul-16 12:03:51.480 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B011-A-301) > jobId: 61473022; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/cfbe42adf1ea86dbca2184b5af2bba
+Jul-16 12:03:51.480 [Task submitter] INFO  nextflow.Session - [e5/cfbe42] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B011-A-301)
+Jul-16 12:03:52.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473017; id: 28; name: RNA_IMPORT (hickey_SI_hickey_B011-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4d/f80a07f284534416bd15da128c4470 started: 1784196217204; exited: 2026-07-16T10:03:51Z; ]
+Jul-16 12:03:57.185 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473020; id: 22; name: RNA_IMPORT (hickey_SI_hickey_B010-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2a/0297a6a267c2bb3ac8bd223ce53412 started: 1784196232186; exited: 2026-07-16T10:03:55Z; ]
+Jul-16 12:03:57.466 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B010-A-405) > jobId: 61473025; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/58/ea2a3a72f5458ce195d5e854441a52
+Jul-16 12:03:57.467 [Task submitter] INFO  nextflow.Session - [58/ea2a3a] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B010-A-405)
+Jul-16 12:04:03.470 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B011-A-401) > jobId: 61473027; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/36/db2202a19fa69ade36d902f2519139
+Jul-16 12:04:03.470 [Task submitter] INFO  nextflow.Session - [36/db2202] Submitted process > RNA_IMPORT (hickey_SI_hickey_B011-A-401)
+Jul-16 12:04:09.466 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B010-A-501) > jobId: 61473029; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/c3/cad23920b9ccaee11d7f765a597d5d
+Jul-16 12:04:09.466 [Task submitter] INFO  nextflow.Session - [c3/cad239] Submitted process > RNA_IMPORT (hickey_SI_hickey_B010-A-501)
+Jul-16 12:04:15.475 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B012-A-301) > jobId: 61473031; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7e/7ffe8552dae6f9272f27ffae7c0558
+Jul-16 12:04:15.476 [Task submitter] INFO  nextflow.Session - [7e/7ffe85] Submitted process > RNA_IMPORT (hickey_SI_hickey_B012-A-301)
+Jul-16 12:04:17.186 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473027; id: 29; name: RNA_IMPORT (hickey_SI_hickey_B011-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/36/db2202a19fa69ade36d902f2519139 started: 1784196252184; exited: 2026-07-16T10:04:16Z; ]
+Jul-16 12:04:21.469 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B011-A-501) > jobId: 61473033; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/f3/3e61264791cff97009b60a4426b92f
+Jul-16 12:04:21.469 [Task submitter] INFO  nextflow.Session - [f3/3e6126] Submitted process > RNA_IMPORT (hickey_SI_hickey_B011-A-501)
+Jul-16 12:04:22.196 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473029; id: 23; name: RNA_IMPORT (hickey_SI_hickey_B010-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/c3/cad23920b9ccaee11d7f765a597d5d started: 1784196257186; exited: 2026-07-16T10:04:20Z; ]
+Jul-16 12:04:27.489 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B011-A-405) > jobId: 61473035; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/8a/8c5344adacdb183893227f89a10bba
+Jul-16 12:04:27.489 [Task submitter] INFO  nextflow.Session - [8a/8c5344] Submitted process > RNA_IMPORT (hickey_SI_hickey_B011-A-405)
+Jul-16 12:04:32.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473033; id: 33; name: RNA_IMPORT (hickey_SI_hickey_B011-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/f3/3e61264791cff97009b60a4426b92f started: 1784196267185; exited: 2026-07-16T10:04:30Z; ]
+Jul-16 12:04:33.466 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B011-A-401) > jobId: 61473037; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/79/496dd6abe3d7f9f0aacca050e20d62
+Jul-16 12:04:33.467 [Task submitter] INFO  nextflow.Session - [79/496dd6] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B011-A-401)
+Jul-16 12:04:39.457 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B010-A-501) > jobId: 61473039; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e2/bddfc7acec483af303edd136c0be3b
+Jul-16 12:04:39.458 [Task submitter] INFO  nextflow.Session - [e2/bddfc7] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B010-A-501)
+Jul-16 12:04:45.478 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B011-A-501) > jobId: 61473041; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/03/8b9cb8263aa50fbc2c582d862fa809
+Jul-16 12:04:45.479 [Task submitter] INFO  nextflow.Session - [03/8b9cb8] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B011-A-501)
+Jul-16 12:04:51.467 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B011-A-405) > jobId: 61473044; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/71/038cd3b1a155a44dfbe90482b8eb05
+Jul-16 12:04:51.468 [Task submitter] INFO  nextflow.Session - [71/038cd3] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B011-A-405)
+Jul-16 12:04:57.186 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473031; id: 34; name: RNA_IMPORT (hickey_SI_hickey_B012-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7e/7ffe8552dae6f9272f27ffae7c0558 started: 1784196262197; exited: 2026-07-16T10:04:53Z; ]
+Jul-16 12:04:57.188 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473035; id: 31; name: RNA_IMPORT (hickey_SI_hickey_B011-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/8a/8c5344adacdb183893227f89a10bba started: 1784196277202; exited: 2026-07-16T10:04:53Z; ]
+Jul-16 12:04:57.458 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B012-A-401) > jobId: 61473046; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2a/3e8a652f5fe2c8badf21db8e5d9a02
+Jul-16 12:04:57.458 [Task submitter] INFO  nextflow.Session - [2a/3e8a65] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B012-A-401)
+Jul-16 12:05:03.470 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B012-A-405) > jobId: 61473048; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/3e/bb5eb2d024d44ee43b539abb949ddd
+Jul-16 12:05:03.471 [Task submitter] INFO  nextflow.Session - [3e/bb5eb2] Submitted process > RNA_IMPORT (hickey_SI_hickey_B012-A-405)
+Jul-16 12:05:09.467 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B012-A-501) > jobId: 61473050; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a3/fbc6dc71fe0f805e16d2509a66991a
+Jul-16 12:05:09.467 [Task submitter] INFO  nextflow.Session - [a3/fbc6dc] Submitted process > RNA_IMPORT (hickey_SI_hickey_B012-A-501)
+Jul-16 12:05:15.487 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B012-A-301) > jobId: 61473052; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/10ad894f5f8161c16f4093841c0585
+Jul-16 12:05:15.487 [Task submitter] INFO  nextflow.Session - [bb/10ad89] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B012-A-301)
+Jul-16 12:05:21.461 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B012-A-405) > jobId: 61473054; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/23/701d85d829d0924ef780db64f20b24
+Jul-16 12:05:21.461 [Task submitter] INFO  nextflow.Session - [23/701d85] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B012-A-405)
+Jul-16 12:05:22.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473048; id: 38; name: RNA_IMPORT (hickey_SI_hickey_B012-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/3e/bb5eb2d024d44ee43b539abb949ddd started: 1784196312185; exited: 2026-07-16T10:05:22Z; ]
+Jul-16 12:05:27.455 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (hickey_SI_hickey_B012-A-501) > jobId: 61473057; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/04/6de6281800986fe219b6695cd0c5ad
+Jul-16 12:05:27.456 [Task submitter] INFO  nextflow.Session - [04/6de628] Submitted process > ATAC_IMPORT (hickey_SI_hickey_B012-A-501)
+Jul-16 12:05:33.459 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (hickey_SI_hickey_B012-A-401) > jobId: 61473059; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cf/486dcd51a701f1157ffa890367ca2f
+Jul-16 12:05:33.460 [Task submitter] INFO  nextflow.Session - [cf/486dcd] Submitted process > RNA_IMPORT (hickey_SI_hickey_B012-A-401)
+Jul-16 12:05:37.205 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473050; id: 39; name: RNA_IMPORT (hickey_SI_hickey_B012-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/a3/fbc6dc71fe0f805e16d2509a66991a started: 1784196322188; exited: 2026-07-16T10:05:34Z; ]
+Jul-16 12:05:52.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472883; id: 7; name: ATAC_IMPORT (hickey_SI_hickey_B006-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e7/b76d2e97fe9a71b95cafa103b5e09e started: 1784196092197; exited: 2026-07-16T10:05:50Z; ]
+Jul-16 12:05:52.190 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472939; id: 9; name: ATAC_IMPORT (hickey_SI_hickey_B006-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/c5/2e3437a6e5fd72748542ef38608d4a started: 1784196107182; exited: 2026-07-16T10:05:50Z; ]
+Jul-16 12:05:52.195 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473059; id: 37; name: RNA_IMPORT (hickey_SI_hickey_B012-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cf/486dcd51a701f1157ffa890367ca2f started: 1784196337207; exited: 2026-07-16T10:05:47Z; ]
+Jul-16 12:05:52.213 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-16 12:05:52.907 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_QC_EMBED > jobId: 61473064; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d4/ff936bcda07bbd60a6112fb1c82dc5
+Jul-16 12:05:52.907 [Task submitter] INFO  nextflow.Session - [d4/ff936b] Submitted process > RNA_QC_EMBED
+Jul-16 12:05:57.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472999; id: 6; name: ATAC_IMPORT (hickey_SI_hickey_B006-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ff/defce7d4ece837c097813c3c0629bf started: 1784196142182; exited: 2026-07-16T10:05:53Z; ]
+Jul-16 12:06:32.187 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 19 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61472929; id: 8; name: ATAC_IMPORT (hickey_SI_hickey_B006-A-402); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d2/9294f94dc1253af670ac8dbdebf2e2 started: 1784196102181; exited: -; ]
+~> TaskHandler[jobId: 61473000; id: 10; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/8f/83fcd9703dac74f285fd7a9615494c started: 1784196152182; exited: -; ]
+~> TaskHandler[jobId: 61473004; id: 18; name: ATAC_IMPORT (hickey_SI_hickey_B009-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ce/70dbb92f3a227b2298951d09da65f1 started: 1784196172182; exited: -; ]
+~> TaskHandler[jobId: 61473007; id: 12; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-402); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/46d23261b73f0dc2a56ae79c2c191c started: 1784196182182; exited: -; ]
+~> TaskHandler[jobId: 61473008; id: 11; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-401); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/31/6ae7b21533f20ea6fb302c495e6113 started: 1784196187186; exited: -; ]
+~> TaskHandler[jobId: 61473009; id: 13; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-501); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/40/8e1e9601524295c34b82172bbfce63 started: 1784196192184; exited: -; ]
+~> TaskHandler[jobId: 61473014; id: 20; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cc/ffec01e60df83c3a6bdf10a6881a24 started: 1784196207184; exited: -; ]
+~> TaskHandler[jobId: 61473019; id: 24; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-401); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7e/11f869c0aff8e5e01940b9c87c5f80 started: 1784196227184; exited: -; ]
+~> TaskHandler[jobId: 61473022; id: 27; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/cfbe42adf1ea86dbca2184b5af2bba started: 1784196242184; exited: -; ]
+~> TaskHandler[jobId: 61473025; id: 25; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/58/ea2a3a72f5458ce195d5e854441a52 started: 1784196247184; exited: -; ]
+.. remaining tasks omitted.
+Jul-16 12:06:42.190 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61472929; id: 8; name: ATAC_IMPORT (hickey_SI_hickey_B006-A-402); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d2/9294f94dc1253af670ac8dbdebf2e2 started: 1784196102181; exited: 2026-07-16T10:06:40Z; ]
+Jul-16 12:06:52.191 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473007; id: 12; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-402); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/46d23261b73f0dc2a56ae79c2c191c started: 1784196182182; exited: 2026-07-16T10:06:51Z; ]
+Jul-16 12:07:17.192 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473004; id: 18; name: ATAC_IMPORT (hickey_SI_hickey_B009-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ce/70dbb92f3a227b2298951d09da65f1 started: 1784196172182; exited: 2026-07-16T10:07:13Z; ]
+Jul-16 12:08:32.192 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473008; id: 11; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/31/6ae7b21533f20ea6fb302c495e6113 started: 1784196187186; exited: 2026-07-16T10:08:29Z; ]
+Jul-16 12:09:12.195 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473041; id: 35; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/03/8b9cb8263aa50fbc2c582d862fa809 started: 1784196302185; exited: 2026-07-16T10:09:08Z; ]
+Jul-16 12:09:27.194 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473000; id: 10; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/8f/83fcd9703dac74f285fd7a9615494c started: 1784196152182; exited: 2026-07-16T10:09:26Z; ]
+Jul-16 12:09:42.195 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473009; id: 13; name: ATAC_IMPORT (hickey_SI_hickey_B008-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/40/8e1e9601524295c34b82172bbfce63 started: 1784196192184; exited: 2026-07-16T10:09:41Z; ]
+Jul-16 12:09:42.197 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473037; id: 30; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/79/496dd6abe3d7f9f0aacca050e20d62 started: 1784196277203; exited: 2026-07-16T10:09:40Z; ]
+Jul-16 12:10:02.197 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473039; id: 26; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e2/bddfc7acec483af303edd136c0be3b started: 1784196287186; exited: 2026-07-16T10:10:02Z; ]
+Jul-16 12:10:07.196 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473019; id: 24; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/7e/11f869c0aff8e5e01940b9c87c5f80 started: 1784196227184; exited: 2026-07-16T10:10:02Z; ]
+Jul-16 12:11:32.197 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 9 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473014; id: 20; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cc/ffec01e60df83c3a6bdf10a6881a24 started: 1784196207184; exited: -; ]
+~> TaskHandler[jobId: 61473022; id: 27; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/cfbe42adf1ea86dbca2184b5af2bba started: 1784196242184; exited: -; ]
+~> TaskHandler[jobId: 61473025; id: 25; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/58/ea2a3a72f5458ce195d5e854441a52 started: 1784196247184; exited: -; ]
+~> TaskHandler[jobId: 61473044; id: 32; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/71/038cd3b1a155a44dfbe90482b8eb05 started: 1784196302186; exited: -; ]
+~> TaskHandler[jobId: 61473046; id: 40; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-401); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2a/3e8a652f5fe2c8badf21db8e5d9a02 started: 1784196307186; exited: -; ]
+~> TaskHandler[jobId: 61473052; id: 36; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-301); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/10ad894f5f8161c16f4093841c0585 started: 1784196322189; exited: -; ]
+~> TaskHandler[jobId: 61473054; id: 41; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/23/701d85d829d0924ef780db64f20b24 started: 1784196332186; exited: -; ]
+~> TaskHandler[jobId: 61473057; id: 42; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-501); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/04/6de6281800986fe219b6695cd0c5ad started: 1784196337206; exited: -; ]
+~> TaskHandler[jobId: 61473064; id: 43; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d4/ff936bcda07bbd60a6112fb1c82dc5 started: 1784196362187; exited: -; ]
+Jul-16 12:12:17.200 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473022; id: 27; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e5/cfbe42adf1ea86dbca2184b5af2bba started: 1784196242184; exited: 2026-07-16T10:12:17Z; ]
+Jul-16 12:13:02.203 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473046; id: 40; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-401); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2a/3e8a652f5fe2c8badf21db8e5d9a02 started: 1784196307186; exited: 2026-07-16T10:12:58Z; ]
+Jul-16 12:13:27.204 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473064; id: 43; name: RNA_QC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/d4/ff936bcda07bbd60a6112fb1c82dc5 started: 1784196362187; exited: 2026-07-16T10:13:22Z; ]
+Jul-16 12:13:37.225 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473044; id: 32; name: ATAC_IMPORT (hickey_SI_hickey_B011-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/71/038cd3b1a155a44dfbe90482b8eb05 started: 1784196302186; exited: 2026-07-16T10:13:33Z; ]
+Jul-16 12:15:47.207 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473057; id: 42; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-501); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/04/6de6281800986fe219b6695cd0c5ad started: 1784196337206; exited: 2026-07-16T10:15:46Z; ]
+Jul-16 12:15:57.206 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473052; id: 36; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bb/10ad894f5f8161c16f4093841c0585 started: 1784196322189; exited: 2026-07-16T10:15:52Z; ]
+Jul-16 12:16:07.206 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473014; id: 20; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-301); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/cc/ffec01e60df83c3a6bdf10a6881a24 started: 1784196207184; exited: 2026-07-16T10:16:06Z; ]
+Jul-16 12:16:32.205 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473025; id: 25; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/58/ea2a3a72f5458ce195d5e854441a52 started: 1784196247184; exited: -; ]
+~> TaskHandler[jobId: 61473054; id: 41; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-405); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/23/701d85d829d0924ef780db64f20b24 started: 1784196332186; exited: -; ]
+Jul-16 12:16:42.225 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473054; id: 41; name: ATAC_IMPORT (hickey_SI_hickey_B012-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/23/701d85d829d0924ef780db64f20b24 started: 1784196332186; exited: 2026-07-16T10:16:42Z; ]
+Jul-16 12:18:07.210 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473025; id: 25; name: ATAC_IMPORT (hickey_SI_hickey_B010-A-405); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/58/ea2a3a72f5458ce195d5e854441a52 started: 1784196247184; exited: 2026-07-16T10:18:06Z; ]
+Jul-16 12:18:07.546 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_TSSE_THRESHOLD > jobId: 61473511; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/86/1c365f62db0511dbb3acea19df67f6
+Jul-16 12:18:07.546 [Task submitter] INFO  nextflow.Session - [86/1c365f] Submitted process > ATAC_TSSE_THRESHOLD
+Jul-16 12:18:32.211 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473511; id: 44; name: ATAC_TSSE_THRESHOLD; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/86/1c365f62db0511dbb3acea19df67f6 started: 1784197097210; exited: 2026-07-16T10:18:30Z; ]
+Jul-16 12:18:33.098 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_EMBED > jobId: 61473515; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c
+Jul-16 12:18:33.098 [Task submitter] INFO  nextflow.Session - [eb/e4144f] Submitted process > ATAC_EMBED
+Jul-16 12:21:32.215 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:26:32.224 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:31:32.233 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:36:32.241 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:41:32.251 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:46:32.256 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:51:32.265 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 12:56:32.275 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 13:01:32.283 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 13:06:32.293 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 13:11:32.298 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: -; ]
+Jul-16 13:11:47.300 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61473515; id: 45; name: ATAC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/eb/e4144fd66c4654f3844545437dec7c started: 1784197122263; exited: 2026-07-16T11:11:45Z; ]
+Jul-16 13:11:47.324 [Actor Thread 7] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26
+Jul-16 13:11:47.649 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE_HARMONY (harmony) > jobId: 61474970; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/57/8f64c39af47b3eaf8f94f56a911007
+Jul-16 13:11:47.650 [Task submitter] INFO  nextflow.Session - [57/8f64c3] Submitted process > WNN_INTEGRATE_HARMONY (harmony)
+Jul-16 13:11:52.639 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE_RAW (raw) > jobId: 61475051; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0c/ae93228e3b6e4331acf8fedf1e152b
+Jul-16 13:11:52.640 [Task submitter] INFO  nextflow.Session - [0c/ae9322] Submitted process > WNN_INTEGRATE_RAW (raw)
+Jul-16 13:16:12.310 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61475051; id: 46; name: WNN_INTEGRATE_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0c/ae93228e3b6e4331acf8fedf1e152b started: 1784200327299; exited: 2026-07-16T11:16:10Z; ]
+Jul-16 13:16:12.620 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE_RAW (raw) > jobId: 61475511; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/34/dc1f14d000a4086038fb5fe6d0a6ab
+Jul-16 13:16:12.620 [Task submitter] INFO  nextflow.Session - [34/dc1f14] Submitted process > ANNOTATE_RAW (raw)
+Jul-16 13:16:32.310 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61474970; id: 47; name: WNN_INTEGRATE_HARMONY (harmony); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/57/8f64c39af47b3eaf8f94f56a911007 started: 1784200317299; exited: -; ]
+~> TaskHandler[jobId: 61475511; id: 48; name: ANNOTATE_RAW (raw); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/34/dc1f14d000a4086038fb5fe6d0a6ab started: 1784200582309; exited: -; ]
+Jul-16 13:17:17.313 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61475511; id: 48; name: ANNOTATE_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/34/dc1f14d000a4086038fb5fe6d0a6ab started: 1784200582309; exited: 2026-07-16T11:17:16Z; ]
+Jul-16 13:17:17.625 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS_RAW (raw) > jobId: 61475514; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/79/c9306f49ce4ed3758395022fe31ffc
+Jul-16 13:17:17.625 [Task submitter] INFO  nextflow.Session - [79/c9306f] Submitted process > PLOTS_RAW (raw)
+Jul-16 13:17:27.313 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61474970; id: 47; name: WNN_INTEGRATE_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/57/8f64c39af47b3eaf8f94f56a911007 started: 1784200317299; exited: 2026-07-16T11:17:24Z; ]
+Jul-16 13:17:30.714 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE_HARMONY (harmony) > jobId: 61475515; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2c/469397bcb5b5d35e2424e19cefc11a
+Jul-16 13:17:30.714 [Task submitter] INFO  nextflow.Session - [2c/469397] Submitted process > ANNOTATE_HARMONY (harmony)
+Jul-16 13:17:52.313 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61475514; id: 49; name: PLOTS_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/79/c9306f49ce4ed3758395022fe31ffc started: 1784200647313; exited: 2026-07-16T11:17:47Z; ]
+Jul-16 13:18:32.313 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61475515; id: 50; name: ANNOTATE_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/2c/469397bcb5b5d35e2424e19cefc11a started: 1784200657329; exited: 2026-07-16T11:18:29Z; ]
+Jul-16 13:18:40.562 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS_HARMONY (harmony) > jobId: 61475519; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ae/9f202848e921ba91b34ad5efb62e93
+Jul-16 13:18:40.562 [Task submitter] INFO  nextflow.Session - [ae/9f2028] Submitted process > PLOTS_HARMONY (harmony)
+Jul-16 13:19:12.314 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61475519; id: 51; name: PLOTS_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ae/9f202848e921ba91b34ad5efb62e93 started: 1784200722327; exited: 2026-07-16T11:19:07Z; ]
+Jul-16 13:19:12.324 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-16 13:19:17.314 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Jul-16 13:19:17.314 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-16 13:19:17.317 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-16 13:19:17.318 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-16 13:19:17.322 [main] INFO  nextflow.Nextflow - 
+✅  Done. Results in /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/hickey_smallI_EM
+
+Jul-16 13:19:17.326 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=51; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=1d 14h 39m 48s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=23; peakCpus=172; peakMemory=1 TB; ]
+Jul-16 13:19:17.326 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-16 13:19:17.327 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-16 13:19:18.743 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-16 13:19:20.261 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-16 13:19:20.277 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-16 13:19:20.278 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

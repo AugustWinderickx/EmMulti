@@ -88,7 +88,11 @@ TSSe ≈ 1–2) and the high-quality mode — by KDE-smoothing each distribution
 locating its peaks and valleys, and taking the deepest valley between the
 dominant low and high peaks. This is done **per sample** by default (quality
 varies between samples) with a **global** dip computed too; set
-`--tsse_mode global` to apply one threshold everywhere.
+`--tsse_mode global` to apply one threshold everywhere, or
+`--tsse_mode manual --tsse_manual_threshold <value>` to skip auto-detection
+and apply a fixed threshold everywhere (per-sample/global dips are still
+computed and shown in `tsse_thresholds.csv`/the diagnostic plots for
+reference, they just aren't the ones applied).
 
 Guard rails, all configurable:
 - `--tsse_min_high_peak` (4.0): the high-quality mode must sit above this.
@@ -100,6 +104,23 @@ Guard rails, all configurable:
 Diagnostics written to `results/atac/qc/`: pooled histogram, per-sample KDE
 ridge (▼ = detected dip), per-sample boxplot with the applied threshold, and a
 TSSe-vs-fragments knee grid.
+
+---
+
+## RNA QC modes
+
+`RNA_QC_EMBED` supports two filtering modes via `--rna_qc_mode`:
+
+- **`basic`** (default): `--rna_min_genes`/`--rna_min_cells` filtering, plus
+  an optional hard `--rna_max_pct_mt` cap (off by default — keeps all cells
+  regardless of mito %).
+- **`strict`**: everything in `basic`, plus the
+  [sc-best-practices](https://www.sc-best-practices.org/preprocessing_visualization/quality_control.html)
+  outlier recipe — cells more than `--rna_strict_n_mads` (5) MADs from the
+  median on log-total-counts, log-n-genes, or %-counts-in-top-20-genes are
+  dropped, and mito is filtered by both a MAD threshold
+  (`--rna_strict_mt_n_mads`, 3) and a hard cap (`--rna_strict_max_pct_mt`,
+  8%). Both filters are logged with how many cells each removed.
 
 ---
 

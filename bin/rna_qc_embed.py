@@ -5,7 +5,10 @@ rna_qc_embed.py — concatenate per-sample RNA, QC, normalise, and embed.
 Steps mirror a standard scanpy pipeline but batch-aware and with adaptive QC
 figures:
   * concat all samples (outer join),
-  * QC metrics (mt / ribo / hb), permissive filtering,
+  * QC metrics (mt / ribo / hb), filtering (--qc_mode basic | strict):
+      - basic: min_genes/min_cells (+ optional hard max_pct_mt) only,
+      - strict: basic, plus MAD-based outlier removal on counts/genes/
+        top20-gene-fraction and a mito MAD + hard-cap filter,
   * scrublet per sample,
   * counts layer, normalize_total + log1p,
   * HVG (batch_key=sample), PCA,
@@ -22,8 +25,17 @@ import pandas as pd
 import anndata as ad
 import scanpy as sc
 import matplotlib.pyplot as plt
+from scipy import stats
 
 import mwnn_utils as U
+
+
+def mad_outlier(adata, metric, n_mads):
+    """Boolean mask of cells more than n_mads MADs from the metric's median."""
+    m = adata.obs[metric]
+    med = np.median(m)
+    mad = stats.median_abs_deviation(m)
+    return (m < med - n_mads * mad) | (m > med + n_mads * mad)
 
 
 def qc_plots(adata, outdir):
@@ -45,6 +57,17 @@ def main():
     ap.add_argument("--min_cells", type=int, default=3)
     ap.add_argument("--max_pct_mt", type=float, default=None,
                     help="optional hard cap on %% mito; default keep all")
+    ap.add_argument("--qc_mode", default="basic", choices=["basic", "strict"],
+                    help="basic: min_genes/min_cells (+ optional max_pct_mt) "
+                         "only. strict: also drops MAD-based outliers on "
+                         "counts/genes/top20-gene-fraction, plus a mito "
+                         "MAD + hard-cap filter (sc-best-practices recipe)")
+    ap.add_argument("--strict_n_mads", type=float, default=5.0,
+                    help="strict mode: MAD threshold for counts/genes/top20")
+    ap.add_argument("--strict_mt_n_mads", type=float, default=3.0,
+                    help="strict mode: MAD threshold for pct_counts_mt")
+    ap.add_argument("--strict_max_pct_mt", type=float, default=8.0,
+                    help="strict mode: hard cap on %% mito")
     ap.add_argument("--n_top_genes", type=int, default=3000)
     ap.add_argument("--n_pcs", type=int, default=50)
     ap.add_argument("--harmony_key", default="sample")
@@ -74,6 +97,7 @@ def main():
     adata.var["hb"] = adata.var_names.str.contains(r"^HB[^(P)]" if args.species == "human"
                                                    else r"^Hb[^(p)]")
     sc.pp.calculate_qc_metrics(adata, qc_vars=["mt", "ribo", "hb"],
+                               percent_top=(20, 50, 100, 200, 500),
                                inplace=True, log1p=True)
     qc_plots(adata, out)
 
@@ -81,6 +105,22 @@ def main():
     sc.pp.filter_genes(adata, min_cells=args.min_cells)
     if args.max_pct_mt is not None:
         adata = adata[adata.obs["pct_counts_mt"] <= args.max_pct_mt].copy()
+
+    if args.qc_mode == "strict":
+        outlier = (
+            mad_outlier(adata, "log1p_total_counts", args.strict_n_mads)
+            | mad_outlier(adata, "log1p_n_genes_by_counts", args.strict_n_mads)
+            | mad_outlier(adata, "pct_counts_in_top_20_genes", args.strict_n_mads)
+        )
+        mt_outlier = (
+            mad_outlier(adata, "pct_counts_mt", args.strict_mt_n_mads)
+            | (adata.obs["pct_counts_mt"] > args.strict_max_pct_mt)
+        )
+        n0 = adata.n_obs
+        adata = adata[~(outlier | mt_outlier)].copy()
+        U.log(f"strict QC removed {n0 - adata.n_obs} outlier cells "
+              f"({int(outlier.sum())} count/gene/top20 outliers, "
+              f"{int(mt_outlier.sum())} mito outliers)")
 
     sc.pp.scrublet(adata, batch_key="sample")
     if "predicted_doublet" in adata.obs:

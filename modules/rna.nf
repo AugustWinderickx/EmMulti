@@ -44,6 +44,10 @@ process RNA_QC_EMBED {
         --min_genes ${params.rna_min_genes} \\
         --min_cells ${params.rna_min_cells} \\
         ${maxmt} \\
+        --qc_mode ${params.rna_qc_mode} \\
+        --strict_n_mads ${params.rna_strict_n_mads} \\
+        --strict_mt_n_mads ${params.rna_strict_mt_n_mads} \\
+        --strict_max_pct_mt ${params.rna_strict_max_pct_mt} \\
         --n_top_genes ${params.rna_n_top_genes} \\
         --n_pcs ${params.rna_n_pcs} \\
         --outdir . \\

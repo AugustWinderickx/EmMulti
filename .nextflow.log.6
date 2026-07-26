@@ -1,185 +1,206 @@
-Jul-16 16:27:19.155 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet /user/leuven/359/vsc35918/awinderickx/data/crc_reverse/metastasis/multiome/efremova/primary/samplesheet_efremova_primary.csv --slurm_account lp_big_wice_cpu --outdir /lustre1/project/stg_00064/awinderickx/projects/crc/multiome/efremova_primary_EM --genome hg38 --species human --tsse_mode global --barcode_translation skip -name efremova_primary --gtf /user/leuven/359/vsc35918/lcb/awinderickx/genomes/gencode.v47.annotation.gtf --markers assets/markers.yaml
-Jul-16 16:27:19.319 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
-Jul-16 16:27:19.342 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
-Jul-16 16:27:19.375 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Jul-16 16:27:19.376 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Jul-16 16:27:19.379 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Jul-16 16:27:19.392 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Jul-16 16:27:19.414 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
-Jul-16 16:27:19.416 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
-Jul-16 16:27:19.467 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
-Jul-16 16:27:19.471 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3bcd426c] - activable => nextflow.secret.LocalSecretsProvider@3bcd426c
-Jul-16 16:27:19.488 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
-Jul-16 16:27:20.306 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
-Jul-16 16:27:20.350 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Jul-16 16:27:20.368 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [efremova_primary] DSL2 - revision: 14b9d4a9e9
-Jul-16 16:27:20.369 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Jul-16 16:27:20.370 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Jul-16 16:27:20.422 [main] DEBUG nextflow.Session - Session UUID: 27b29c50-0075-4f3d-8fd2-3eceae71b20a
-Jul-16 16:27:20.422 [main] DEBUG nextflow.Session - Run name: efremova_primary
-Jul-16 16:27:20.423 [main] DEBUG nextflow.Session - Executor pool size: 4
-Jul-16 16:27:20.431 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Jul-16 16:27:20.437 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-16 16:27:20.460 [main] DEBUG nextflow.cli.CmdRun - 
+Jul-17 11:39:26.333 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile vsc --samplesheet /user/leuven/359/vsc35918/awinderickx/data/crc_reverse/healthy/wustl/samplesheet_wustl_healthy.tsv --slurm_account lp_big_wice_cpu --outdir /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/wustl_healthy_EM --genome hg38 --species human --tsse_mode global --barcode_translation skip -name wustl_healthy --markers /user/leuven/359/vsc35918/data_dir/EmMulti/assets/healthy_colon_markers.yaml --gtf /user/leuven/359/vsc35918/lcb/awinderickx/genomes/gencode.v47.annotation.gtf
+Jul-17 11:39:26.514 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.8
+Jul-17 11:39:26.537 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/user/leuven/359/vsc35918/.nextflow/plugins; core-plugins: nf-amazon@2.15.0-patch2,nf-azure@1.16.0-patch1,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.1,nf-tower@1.11.4-patch2,nf-wave@1.12.1
+Jul-17 11:39:26.601 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jul-17 11:39:26.602 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jul-17 11:39:26.605 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Jul-17 11:39:26.617 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jul-17 11:39:26.635 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-17 11:39:26.637 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/nextflow.config
+Jul-17 11:39:26.687 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /user/leuven/359/vsc35918/.nextflow/secrets/store.json
+Jul-17 11:39:26.691 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@3bcd426c] - activable => nextflow.secret.LocalSecretsProvider@3bcd426c
+Jul-17 11:39:26.704 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `vsc`
+Jul-17 11:39:27.412 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, vsc, conda]
+Jul-17 11:39:27.444 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Jul-17 11:39:27.462 [main] INFO  nextflow.cli.CmdRun - Launching `main.nf` [wustl_healthy] DSL2 - revision: 14b9d4a9e9
+Jul-17 11:39:27.463 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jul-17 11:39:27.463 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Jul-17 11:39:27.529 [main] DEBUG nextflow.Session - Session UUID: 03dfc578-15e9-458e-bf69-4b6bec25d30e
+Jul-17 11:39:27.529 [main] DEBUG nextflow.Session - Run name: wustl_healthy
+Jul-17 11:39:27.530 [main] DEBUG nextflow.Session - Executor pool size: 4
+Jul-17 11:39:27.540 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Jul-17 11:39:27.546 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-17 11:39:27.591 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 25.04.8 build 5956
   Created: 06-10-2025 21:19 UTC (23:19 CEST)
   System: Linux 5.14.0-687.17.1.20260609.el9.x86_64
   Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 23.0.2+7
   Encoding: UTF-8 (UTF-8)
-  Process: 2814087@g28l17 [10.118.228.78]
-  CPUs: 4 - Mem: 2 TB (1.6 TB) - Swap: 2 GB (1.9 GB)
-Jul-16 16:27:20.549 [main] DEBUG nextflow.Session - Work-dir: /lustre1/scratch/359/vsc35918/nextflow-work [lustre]
-Jul-16 16:27:20.588 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Jul-16 16:27:20.597 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Jul-16 16:27:20.623 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
-Jul-16 16:27:20.649 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Jul-16 16:27:20.658 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
-Jul-16 16:27:20.734 [main] DEBUG nextflow.Session - Session start
-Jul-16 16:27:20.738 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /lustre1/project/stg_00064/awinderickx/projects/crc/multiome/efremova_primary_EM/pipeline_info/trace.txt
-Jul-16 16:27:21.020 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Jul-16 16:27:21.553 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ATAC_IMPORT
-Jul-16 16:27:21.563 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.563 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.573 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
-Jul-16 16:27:21.581 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 30; pollInterval: 5s; dumpInterval: 5m 
-Jul-16 16:27:21.583 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
-Jul-16 16:27:21.584 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 60 seconds
-Jul-16 16:27:21.587 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
-Jul-16 16:27:21.607 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_IMPORT': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.644 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name ATAC_TSSE_THRESHOLD
-Jul-16 16:27:21.646 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.646 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.646 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_TSSE_THRESHOLD': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.653 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name ATAC_EMBED
-Jul-16 16:27:21.654 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.655 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.655 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_EMBED': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.671 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name RNA_IMPORT
-Jul-16 16:27:21.672 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.672 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.673 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_IMPORT': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.679 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name RNA_QC_EMBED
-Jul-16 16:27:21.681 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.681 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.682 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_QC_EMBED': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.693 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_HARMONY
-Jul-16 16:27:21.695 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.695 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.696 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_HARMONY': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.704 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_HARMONY
-Jul-16 16:27:21.706 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.706 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.706 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_HARMONY': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.713 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_HARMONY
-Jul-16 16:27:21.715 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.715 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.716 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_HARMONY': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.723 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_RAW
-Jul-16 16:27:21.725 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.725 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.726 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_RAW': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.731 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_RAW
-Jul-16 16:27:21.733 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.734 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.734 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_RAW': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.738 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_RAW
-Jul-16 16:27:21.740 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
-Jul-16 16:27:21.740 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
-Jul-16 16:27:21.740 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_RAW': maxForks=0; fair=false; array=0
-Jul-16 16:27:21.743 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ANNOTATE, PLOTS_RAW, WNN_INTEGRATE, RNA_QC_EMBED, WNN_INTEGRATE_HARMONY, RNA_IMPORT, ATAC_IMPORT, ATAC_TSSE_THRESHOLD, WNN_INTEGRATE_RAW, PLOTS_HARMONY, PLOTS, ANNOTATE_RAW, ATAC_EMBED, ANNOTATE_HARMONY
-Jul-16 16:27:21.746 [main] DEBUG nextflow.Session - Igniting dataflow network (15)
-Jul-16 16:27:21.752 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_IMPORT
-Jul-16 16:27:21.752 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_TSSE_THRESHOLD
-Jul-16 16:27:21.753 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_EMBED
-Jul-16 16:27:21.753 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_IMPORT
-Jul-16 16:27:21.753 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_QC_EMBED
-Jul-16 16:27:21.766 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_HARMONY
-Jul-16 16:27:21.767 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_HARMONY
-Jul-16 16:27:21.767 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_HARMONY
-Jul-16 16:27:21.767 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_RAW
-Jul-16 16:27:21.769 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_RAW
-Jul-16 16:27:21.769 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_RAW
-Jul-16 16:27:21.776 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Process: 249031@g28l05 [10.118.228.73]
+  CPUs: 4 - Mem: 2 TB (1.5 TB) - Swap: 2 GB (2 GB)
+Jul-17 11:39:27.740 [main] DEBUG nextflow.Session - Work-dir: /lustre1/scratch/359/vsc35918/nextflow-work [lustre]
+Jul-17 11:39:27.776 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jul-17 11:39:27.787 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jul-17 11:39:27.807 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Jul-17 11:39:27.828 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Jul-17 11:39:27.883 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Jul-17 11:39:28.006 [main] DEBUG nextflow.Session - Session start
+Jul-17 11:39:28.010 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /user/leuven/359/vsc35918/awinderickx/projects/crc/healthy/wustl_healthy_EM/pipeline_info/trace.txt
+Jul-17 11:39:28.254 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jul-17 11:39:28.667 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ATAC_IMPORT
+Jul-17 11:39:28.674 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.674 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.682 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Jul-17 11:39:28.689 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 30; pollInterval: 5s; dumpInterval: 5m 
+Jul-17 11:39:28.690 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Jul-17 11:39:28.691 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 60 seconds
+Jul-17 11:39:28.695 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Jul-17 11:39:28.710 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_IMPORT': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.738 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name ATAC_TSSE_THRESHOLD
+Jul-17 11:39:28.740 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.740 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.740 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_TSSE_THRESHOLD': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.745 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name ATAC_EMBED
+Jul-17 11:39:28.746 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.746 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.747 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ATAC_EMBED': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.757 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name RNA_IMPORT
+Jul-17 11:39:28.759 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.759 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.759 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_IMPORT': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.764 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name RNA_QC_EMBED
+Jul-17 11:39:28.765 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.765 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.766 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RNA_QC_EMBED': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.773 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_HARMONY
+Jul-17 11:39:28.774 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.774 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.775 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_HARMONY': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.781 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_HARMONY
+Jul-17 11:39:28.782 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.782 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.783 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_HARMONY': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.787 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_HARMONY
+Jul-17 11:39:28.788 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.789 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.789 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_HARMONY': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.794 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_high` matches labels `process_high` for process with name WNN_INTEGRATE_RAW
+Jul-17 11:39:28.795 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.795 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.796 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'WNN_INTEGRATE_RAW': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.799 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name ANNOTATE_RAW
+Jul-17 11:39:28.801 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.801 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.802 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'ANNOTATE_RAW': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.804 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name PLOTS_RAW
+Jul-17 11:39:28.805 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Jul-17 11:39:28.805 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Jul-17 11:39:28.806 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'PLOTS_RAW': maxForks=0; fair=false; array=0
+Jul-17 11:39:28.808 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ANNOTATE, PLOTS_RAW, WNN_INTEGRATE, RNA_QC_EMBED, WNN_INTEGRATE_HARMONY, RNA_IMPORT, ATAC_IMPORT, ATAC_TSSE_THRESHOLD, WNN_INTEGRATE_RAW, PLOTS_HARMONY, PLOTS, ANNOTATE_RAW, ATAC_EMBED, ANNOTATE_HARMONY
+Jul-17 11:39:28.810 [main] DEBUG nextflow.Session - Igniting dataflow network (15)
+Jul-17 11:39:28.815 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_IMPORT
+Jul-17 11:39:28.815 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_TSSE_THRESHOLD
+Jul-17 11:39:28.815 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ATAC_EMBED
+Jul-17 11:39:28.816 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_IMPORT
+Jul-17 11:39:28.816 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RNA_QC_EMBED
+Jul-17 11:39:28.825 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_HARMONY
+Jul-17 11:39:28.825 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_HARMONY
+Jul-17 11:39:28.831 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_HARMONY
+Jul-17 11:39:28.831 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > WNN_INTEGRATE_RAW
+Jul-17 11:39:28.831 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ANNOTATE_RAW
+Jul-17 11:39:28.834 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > PLOTS_RAW
+Jul-17 11:39:28.834 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_47ce5e88485954f5: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/rna.nf
   Script_9af17aaa4d2a514a: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/atac.nf
   Script_f2cb09a0f62ee1bd: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/modules/wnn.nf
   Script_5e656363f6e2c496: /vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/main.nf
-Jul-16 16:27:21.776 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Jul-16 16:27:21.776 [main] DEBUG nextflow.Session - Session await
-Jul-16 16:27:21.856 [Actor Thread 10] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25
-Jul-16 16:27:21.856 [Actor Thread 5] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26
-Jul-16 16:27:22.887 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC20T) > jobId: 61478790; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/05/8948fa60de220f9f8b27f05740eed3
-Jul-16 16:27:22.888 [Task submitter] INFO  nextflow.Session - [05/8948fa] Submitted process > ATAC_IMPORT (efremova_CRC20T)
-Jul-16 16:27:27.878 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (efremova_CRC03T) > jobId: 61478791; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/78/e74bbd5a96830901044a22c3b4ff5e
-Jul-16 16:27:27.879 [Task submitter] INFO  nextflow.Session - [78/e74bbd] Submitted process > ATAC_IMPORT (efremova_CRC03T)
-Jul-16 16:27:33.879 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC03T) > jobId: 61478792; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/07/787186df641b3b05da3dabf14849cb
-Jul-16 16:27:33.879 [Task submitter] INFO  nextflow.Session - [07/787186] Submitted process > RNA_IMPORT (efremova_CRC03T)
-Jul-16 16:27:39.873 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (efremova_CRC20T) > jobId: 61478794; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bf/0978e0c4731d4c8f569f9b9cdded04
-Jul-16 16:27:39.874 [Task submitter] INFO  nextflow.Session - [bf/0978e0] Submitted process > RNA_IMPORT (efremova_CRC20T)
-Jul-16 16:28:41.597 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478792; id: 3; name: RNA_IMPORT (efremova_CRC03T); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/07/787186df641b3b05da3dabf14849cb started: 1784212101599; exited: 2026-07-16T14:28:37Z; ]
-Jul-16 16:28:41.598 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-16 16:28:46.597 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478794; id: 4; name: RNA_IMPORT (efremova_CRC20T); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/bf/0978e0c4731d4c8f569f9b9cdded04 started: 1784212101600; exited: 2026-07-16T14:28:43Z; ]
-Jul-16 16:28:46.930 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_QC_EMBED > jobId: 61478802; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/95/ba3b067f9a6fc56aac85b132439760
-Jul-16 16:28:46.930 [Task submitter] INFO  nextflow.Session - [95/ba3b06] Submitted process > RNA_QC_EMBED
-Jul-16 16:32:26.604 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 3 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478790; id: 2; name: ATAC_IMPORT (efremova_CRC20T); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/05/8948fa60de220f9f8b27f05740eed3 started: 1784212101594; exited: -; ]
-~> TaskHandler[jobId: 61478791; id: 1; name: ATAC_IMPORT (efremova_CRC03T); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/78/e74bbd5a96830901044a22c3b4ff5e started: 1784212111614; exited: -; ]
-~> TaskHandler[jobId: 61478802; id: 5; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/95/ba3b067f9a6fc56aac85b132439760 started: 1784212166598; exited: -; ]
-Jul-16 16:34:06.613 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478790; id: 2; name: ATAC_IMPORT (efremova_CRC20T); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/05/8948fa60de220f9f8b27f05740eed3 started: 1784212101594; exited: 2026-07-16T14:34:04Z; ]
-Jul-16 16:34:06.632 [TaskFinalizer-3] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Jul-16 16:35:01.614 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478791; id: 1; name: ATAC_IMPORT (efremova_CRC03T); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/78/e74bbd5a96830901044a22c3b4ff5e started: 1784212111614; exited: 2026-07-16T14:35:00Z; ]
-Jul-16 16:35:01.969 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_TSSE_THRESHOLD > jobId: 61478865; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/88/329408ff983400ebc1cabc7e4bf8cc
-Jul-16 16:35:01.970 [Task submitter] INFO  nextflow.Session - [88/329408] Submitted process > ATAC_TSSE_THRESHOLD
-Jul-16 16:35:31.639 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478865; id: 6; name: ATAC_TSSE_THRESHOLD; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/88/329408ff983400ebc1cabc7e4bf8cc started: 1784212526615; exited: 2026-07-16T14:35:29Z; ]
-Jul-16 16:35:31.979 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_EMBED > jobId: 61478866; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4a/2887ec9056adff1d57a0ca5c50bf02
-Jul-16 16:35:31.979 [Task submitter] INFO  nextflow.Session - [4a/2887ec] Submitted process > ATAC_EMBED
-Jul-16 16:35:46.617 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478802; id: 5; name: RNA_QC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/95/ba3b067f9a6fc56aac85b132439760 started: 1784212166598; exited: 2026-07-16T14:35:45Z; ]
-Jul-16 16:37:26.619 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478866; id: 7; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4a/2887ec9056adff1d57a0ca5c50bf02 started: 1784212586617; exited: -; ]
-Jul-16 16:42:26.629 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478866; id: 7; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4a/2887ec9056adff1d57a0ca5c50bf02 started: 1784212586617; exited: -; ]
-Jul-16 16:47:26.639 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478866; id: 7; name: ATAC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4a/2887ec9056adff1d57a0ca5c50bf02 started: 1784212586617; exited: -; ]
-Jul-16 16:50:31.648 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478866; id: 7; name: ATAC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/4a/2887ec9056adff1d57a0ca5c50bf02 started: 1784212586617; exited: 2026-07-16T14:50:28Z; ]
-Jul-16 16:50:31.688 [Actor Thread 13] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/muon_apr26
-Jul-16 16:50:32.007 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE_HARMONY (harmony) > jobId: 61478922; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b3/c7ecdf118f60f81881398287afa24a
-Jul-16 16:50:32.008 [Task submitter] INFO  nextflow.Session - [b3/c7ecdf] Submitted process > WNN_INTEGRATE_HARMONY (harmony)
-Jul-16 16:50:37.006 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process WNN_INTEGRATE_RAW (raw) > jobId: 61478923; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/90/61ec89b4f6519c35614b955a936ef7
-Jul-16 16:50:37.007 [Task submitter] INFO  nextflow.Session - [90/61ec89] Submitted process > WNN_INTEGRATE_RAW (raw)
-Jul-16 16:52:26.648 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478922; id: 8; name: WNN_INTEGRATE_HARMONY (harmony); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b3/c7ecdf118f60f81881398287afa24a started: 1784213501647; exited: -; ]
-~> TaskHandler[jobId: 61478923; id: 9; name: WNN_INTEGRATE_RAW (raw); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/90/61ec89b4f6519c35614b955a936ef7 started: 1784213491647; exited: -; ]
-Jul-16 16:56:41.683 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478923; id: 9; name: WNN_INTEGRATE_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/90/61ec89b4f6519c35614b955a936ef7 started: 1784213491647; exited: 2026-07-16T14:56:37Z; ]
-Jul-16 16:56:42.000 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE_RAW (raw) > jobId: 61478942; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e6/a335c8599fa874f7e732fdaa8675c7
-Jul-16 16:56:42.000 [Task submitter] INFO  nextflow.Session - [e6/a335c8] Submitted process > ANNOTATE_RAW (raw)
-Jul-16 16:57:26.661 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478922; id: 8; name: WNN_INTEGRATE_HARMONY (harmony); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b3/c7ecdf118f60f81881398287afa24a started: 1784213501647; exited: -; ]
-~> TaskHandler[jobId: 61478942; id: 10; name: ANNOTATE_RAW (raw); status: SUBMITTED; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e6/a335c8599fa874f7e732fdaa8675c7 started: -; exited: -; ]
-Jul-16 16:58:06.665 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478942; id: 10; name: ANNOTATE_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/e6/a335c8599fa874f7e732fdaa8675c7 started: 1784213851663; exited: 2026-07-16T14:58:04Z; ]
-Jul-16 16:58:06.989 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS_RAW (raw) > jobId: 61478946; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/56/8b3e3a3f7ec2cdca25d3e3060f1931
-Jul-16 16:58:06.989 [Task submitter] INFO  nextflow.Session - [56/8b3e3a] Submitted process > PLOTS_RAW (raw)
-Jul-16 16:58:41.689 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478946; id: 11; name: PLOTS_RAW (raw); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/56/8b3e3a3f7ec2cdca25d3e3060f1931 started: 1784213911662; exited: 2026-07-16T14:58:37Z; ]
-Jul-16 17:02:26.667 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
-~> TaskHandler[jobId: 61478922; id: 8; name: WNN_INTEGRATE_HARMONY (harmony); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b3/c7ecdf118f60f81881398287afa24a started: 1784213501647; exited: -; ]
-Jul-16 17:03:21.669 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478922; id: 8; name: WNN_INTEGRATE_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/b3/c7ecdf118f60f81881398287afa24a started: 1784213501647; exited: 2026-07-16T15:03:18Z; ]
-Jul-16 17:03:21.982 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ANNOTATE_HARMONY (harmony) > jobId: 61478956; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0a/9c4d9ca1129cb6d5d3af1b6df2ffe0
-Jul-16 17:03:21.982 [Task submitter] INFO  nextflow.Session - [0a/9c4d9c] Submitted process > ANNOTATE_HARMONY (harmony)
-Jul-16 17:03:51.670 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478956; id: 12; name: ANNOTATE_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/0a/9c4d9ca1129cb6d5d3af1b6df2ffe0 started: 1784214211668; exited: 2026-07-16T15:03:47Z; ]
-Jul-16 17:03:51.992 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process PLOTS_HARMONY (harmony) > jobId: 61478959; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/68/34f22c56a557b8044b365ab845b3c4
-Jul-16 17:03:51.992 [Task submitter] INFO  nextflow.Session - [68/34f22c] Submitted process > PLOTS_HARMONY (harmony)
-Jul-16 17:04:41.671 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61478959; id: 13; name: PLOTS_HARMONY (harmony); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/68/34f22c56a557b8044b365ab845b3c4 started: 1784214271669; exited: 2026-07-16T15:04:37Z; ]
-Jul-16 17:04:41.683 [main] DEBUG nextflow.Session - Session await > all processes finished
-Jul-16 17:04:46.670 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
-Jul-16 17:04:46.670 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Jul-16 17:04:46.673 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Jul-16 17:04:46.673 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
-Jul-16 17:04:46.678 [main] INFO  nextflow.Nextflow - 
-✅  Done. Results in /lustre1/project/stg_00064/awinderickx/projects/crc/multiome/efremova_primary_EM
+Jul-17 11:39:28.834 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Jul-17 11:39:28.834 [main] DEBUG nextflow.Session - Session await
+Jul-17 11:39:28.888 [Actor Thread 7] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/scrna_nov25
+Jul-17 11:39:28.890 [Actor Thread 8] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26; path=/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26
+Jul-17 11:39:43.858 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (wustl_HT291C1_M1A3) > jobId: 61481864; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6b/903bfa5d87eff80203077b04c86ff6
+Jul-17 11:39:43.859 [Task submitter] INFO  nextflow.Session - [6b/903bfa] Submitted process > ATAC_IMPORT (wustl_HT291C1_M1A3)
+Jul-17 11:39:44.203 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (wustl_SP369H1_Mc1) > jobId: 61481865; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ba/fa057d56d57acc73b8a7f8364a226e
+Jul-17 11:39:44.203 [Task submitter] INFO  nextflow.Session - [ba/fa057d] Submitted process > ATAC_IMPORT (wustl_SP369H1_Mc1)
+Jul-17 11:39:49.111 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process ATAC_IMPORT (wustl_SP819H1_Mc1) > jobId: 61481866; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/61/0b3a33ffe89fc9a970a8e3b0d0032f
+Jul-17 11:39:49.111 [Task submitter] INFO  nextflow.Session - [61/0b3a33] Submitted process > ATAC_IMPORT (wustl_SP819H1_Mc1)
+Jul-17 11:39:55.112 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (wustl_SP819H1_Mc1) > jobId: 61481867; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/56/536dfbb09c2a6e41e6ce628307cdec
+Jul-17 11:39:55.112 [Task submitter] INFO  nextflow.Session - [56/536dfb] Submitted process > RNA_IMPORT (wustl_SP819H1_Mc1)
+Jul-17 11:40:01.149 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (wustl_HT291C1_M1A3) > jobId: 61481868; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/63/f3f2c644a6a1d6add3391b2f461656
+Jul-17 11:40:01.150 [Task submitter] INFO  nextflow.Session - [63/f3f2c6] Submitted process > RNA_IMPORT (wustl_HT291C1_M1A3)
+Jul-17 11:40:07.098 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_IMPORT (wustl_SP369H1_Mc1) > jobId: 61481869; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/91/61808a69b86ba7b8907914f66ec0d0
+Jul-17 11:40:07.098 [Task submitter] INFO  nextflow.Session - [91/61808a] Submitted process > RNA_IMPORT (wustl_SP369H1_Mc1)
+Jul-17 11:40:28.704 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481867; id: 6; name: RNA_IMPORT (wustl_SP819H1_Mc1); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/56/536dfbb09c2a6e41e6ce628307cdec started: 1784281203700; exited: 2026-07-17T09:40:23Z; ]
+Jul-17 11:40:28.705 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-17 11:40:28.710 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481868; id: 4; name: RNA_IMPORT (wustl_HT291C1_M1A3); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/63/f3f2c644a6a1d6add3391b2f461656 started: 1784281208701; exited: 2026-07-17T09:40:26Z; ]
+Jul-17 11:40:28.711 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481869; id: 5; name: RNA_IMPORT (wustl_SP369H1_Mc1); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/91/61808a69b86ba7b8907914f66ec0d0 started: 1784281213700; exited: 2026-07-17T09:40:24Z; ]
+Jul-17 11:40:29.052 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RNA_QC_EMBED > jobId: 61481872; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/83/c5ef17b7f161dbb7ec6ea2e1159efd
+Jul-17 11:40:29.052 [Task submitter] INFO  nextflow.Session - [83/c5ef17] Submitted process > RNA_QC_EMBED
+Jul-17 11:44:33.707 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 4 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61481864; id: 1; name: ATAC_IMPORT (wustl_HT291C1_M1A3); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6b/903bfa5d87eff80203077b04c86ff6 started: 1784281188714; exited: -; ]
+~> TaskHandler[jobId: 61481865; id: 2; name: ATAC_IMPORT (wustl_SP369H1_Mc1); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ba/fa057d56d57acc73b8a7f8364a226e started: 1784281188717; exited: -; ]
+~> TaskHandler[jobId: 61481866; id: 3; name: ATAC_IMPORT (wustl_SP819H1_Mc1); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/61/0b3a33ffe89fc9a970a8e3b0d0032f started: 1784281198701; exited: -; ]
+~> TaskHandler[jobId: 61481872; id: 7; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/83/c5ef17b7f161dbb7ec6ea2e1159efd started: 1784281238702; exited: -; ]
+Jul-17 11:45:03.713 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481865; id: 2; name: ATAC_IMPORT (wustl_SP369H1_Mc1); status: COMPLETED; exit: 1; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/ba/fa057d56d57acc73b8a7f8364a226e started: 1784281188717; exited: 2026-07-17T09:45:00Z; ]
+Jul-17 11:45:03.714 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481866; id: 3; name: ATAC_IMPORT (wustl_SP819H1_Mc1); status: COMPLETED; exit: 1; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/61/0b3a33ffe89fc9a970a8e3b0d0032f started: 1784281198701; exited: 2026-07-17T09:45:00Z; ]
+Jul-17 11:45:03.717 [TaskFinalizer-5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ATAC_IMPORT (wustl_SP819H1_Mc1); work-dir=/lustre1/scratch/359/vsc35918/nextflow-work/61/0b3a33ffe89fc9a970a8e3b0d0032f
+  error [nextflow.exception.ProcessFailedException]: Process `ATAC_IMPORT (wustl_SP819H1_Mc1)` terminated with an error exit status (1)
+Jul-17 11:45:03.769 [TaskFinalizer-5] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ATAC_IMPORT (wustl_SP819H1_Mc1)'
 
-Jul-16 17:04:46.682 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=13; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=11h 39m 19s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=32; peakMemory=240 GB; ]
-Jul-16 17:04:46.682 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
-Jul-16 17:04:46.683 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
-Jul-16 17:04:47.616 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
-Jul-16 17:04:47.780 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Jul-16 17:04:47.805 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Jul-16 17:04:47.806 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Caused by:
+  Process `ATAC_IMPORT (wustl_SP819H1_Mc1)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  atac_import.py \
+      --fragments wustl_SP819H1_Mc1_fragments.tsv.gz \
+      --sample_id wustl_SP819H1_Mc1 \
+      --genome hg38 \
+      --min_num_fragments 1000 \
+      --bin_size 5000 \
+      --strip_barcode_suffix \
+      --out_h5ad wustl_SP819H1_Mc1.h5ad \
+      --out_qc wustl_SP819H1_Mc1.qc.parquet
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  thread '<unnamed>' panicked at snapatac2-python/src/preprocessing.rs:139:18:
+  called `Result::unwrap()` on an `Err` value: IO(Os { code: 28, kind: StorageFull, message: "No space left on device" })
+  note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+  Traceback (most recent call last):
+    File "/vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/atac_import.py", line 77, in <module>
+      main()
+    File "/vsc-hard-mounts/leuven-data/359/vsc35918/EmMulti/bin/atac_import.py", line 38, in main
+      adata = snap.pp.import_fragments(
+    File "/lustre1/project/stg_00002/lcb/awinderickx/envs/snapatac2_jan26/lib/python3.10/site-packages/snapatac2/preprocessing/_basic.py", line 361, in import_fragments
+      internal.import_fragments(
+  pyo3_runtime.PanicException: called `Result::unwrap()` on an `Err` value: IO(Os { code: 28, kind: StorageFull, message: "No space left on device" })
+
+Work dir:
+  /lustre1/scratch/359/vsc35918/nextflow-work/61/0b3a33ffe89fc9a970a8e3b0d0032f
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Jul-17 11:45:03.771 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=ATAC_IMPORT (wustl_SP369H1_Mc1); work-dir=/lustre1/scratch/359/vsc35918/nextflow-work/ba/fa057d56d57acc73b8a7f8364a226e
+  error [nextflow.exception.ProcessFailedException]: Process `ATAC_IMPORT (wustl_SP369H1_Mc1)` terminated with an error exit status (1)
+Jul-17 11:45:03.773 [TaskFinalizer-5] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Jul-17 11:45:03.779 [main] DEBUG nextflow.Session - Session await > all processes finished
+Jul-17 11:49:33.788 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 2 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61481864; id: 1; name: ATAC_IMPORT (wustl_HT291C1_M1A3); status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6b/903bfa5d87eff80203077b04c86ff6 started: 1784281188714; exited: -; ]
+~> TaskHandler[jobId: 61481872; id: 7; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/83/c5ef17b7f161dbb7ec6ea2e1159efd started: 1784281238702; exited: -; ]
+Jul-17 11:51:53.798 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481864; id: 1; name: ATAC_IMPORT (wustl_HT291C1_M1A3); status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/6b/903bfa5d87eff80203077b04c86ff6 started: 1784281188714; exited: 2026-07-17T09:51:51Z; ]
+Jul-17 11:51:53.816 [TaskFinalizer-6] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Jul-17 11:54:33.800 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 61481872; id: 7; name: RNA_QC_EMBED; status: RUNNING; exit: -; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/83/c5ef17b7f161dbb7ec6ea2e1159efd started: 1784281238702; exited: -; ]
+Jul-17 11:59:03.814 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 61481872; id: 7; name: RNA_QC_EMBED; status: COMPLETED; exit: 0; error: -; workDir: /lustre1/scratch/359/vsc35918/nextflow-work/83/c5ef17b7f161dbb7ec6ea2e1159efd started: 1784281238702; exited: 2026-07-17T09:59:01Z; ]
+Jul-17 11:59:03.815 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Jul-17 11:59:03.815 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Jul-17 11:59:03.835 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Jul-17 11:59:04.408 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Jul-17 11:59:04.410 [main] INFO  nextflow.Nextflow - 
+❌  Failed after 19m 37s
+
+Jul-17 11:59:04.414 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=5; failedCount=2; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=6h 30m 55s; failedDuration=1h 22m 40s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=6; peakCpus=40; peakMemory=264 GB; ]
+Jul-17 11:59:04.414 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Jul-17 11:59:04.415 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Jul-17 11:59:05.076 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Jul-17 11:59:05.196 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Jul-17 11:59:05.211 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Jul-17 11:59:05.212 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
